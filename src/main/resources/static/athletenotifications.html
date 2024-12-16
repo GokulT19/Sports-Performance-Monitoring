@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Notifications</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #0077be;
+    --secondary-color: #00a86b;
+    --background-dark: #121212;
+    --text-light: #f4f4f4;
+    --gradient-primary: linear-gradient(135deg, #0077be 0%, #00a86b 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: rgb(16,16,18);
+    background: linear-gradient(108deg, rgba(16,16,18,1) 0%, rgba(1,28,55,1) 100%);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+.navbar {
+    background-color: rgba(18, 18, 18, 0.9);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    backdrop-filter: blur(10px);
+    border-bottom: 10px solid white; /* Adjust the color and width as needed */
+
+}
+
+.logo {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.loo2-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background:white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.loo2-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.loo2-icon img {
+    width: 70%;
+    height: 70%;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+    margin-right: 20px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(30, 30, 30, 0.9);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: dropdownSlideIn 0.3s ease;
+}
+
+.dropdown-content a {
+    color: var(--text-light);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(50, 50, 50, 0.9);
+    color: var(--secondary-color);
+}
+
+#notifications-container {
+    margin: 129px auto 20px;  /* Top margin to push it below header, centered horizontally */
+    padding: 35px;
+    border: 1px solid rgba(221, 221, 221, 0.2);
+    border-radius: 15px;
+    background-color: rgba(30, 30, 30, 0.8);
+    max-width: 600px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+#notifications-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+#notifications-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#notifications-list li {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: rgba(50, 50, 50, 0.5);
+    border-radius: 10px;
+    color: #f4f4f4;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+#notifications-list li:hover {
+    background-color: rgba(70, 70, 70, 0.7);
+}
+
+#notifications-list li:last-child {
+    border-bottom: none;
+}
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<!-- Navigation -->
+<header class="navbar">
+    <div class="logo">Athletes</div>
+
+    <ul class="nav-links">
+        <li class="dropdown">
+            <a href="athlete.html">Home</a>
+        </li>
+        <li class="dropdown">
+            <a href="#news">News</a>
+            <div class="dropdown-content">
+                <a href="Allatest-news.html">Latest News</a>
+                <a href="trending.html">Trending</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="athleteeventregistration.html">Events</a>
+            <div class="dropdown-content">
+                <a href="athleteeventregistration.html">Upcoming Events</a>
+                <a href="#">Ongoing Events</a>
+                <a href="Allpast-events.html">Completed Events</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="#athletes">Athletes</a>
+            <div class="dropdown-content">
+                <a href="athleteprofile.html">Athlete Profile</a>
+                <a href="athleterankings.html">Rankings</a>
+                <a href="athleteachivement.html">Achievements</a>
+                <a href="athletenotifications.html">Notifications</a>
+            </div>
+        </li>
+        <li><a href="athletecoaches.html">Coaches</a></li>
+        <li class="notification-icon">
+            <a href="athletenotifications.html" class="notification-link">
+                <i class="fas fa-bell"></i>
+                <span class="notification-dot" id="notificationDot"></span>
+            </a>
+        </li>
+        <li><a href="index.html" id="logoutlink">Logout</a></li>
+    </ul>
+</header>
+<div id="notifications-container">
+    <h2>Your Notifications</h2>
+    <ul id="notifications-list">
+        <!-- Notifications will be dynamically loaded here -->
+    </ul>
+</div>
+<script>
+    // Base URL for the backend
+ const apiUrl = "http://localhost:8080/api";
+
+async function getAthleteId() {
+    try {
+        const userId = localStorage.getItem("userId"); // Retrieve user ID from local storage
+
+        if (!userId) {
+            console.error("User ID not found in local storage.");
+            alert("Please log in to view notifications.");
+            return null;
+        }
+
+        // Decode the base64 userId if it's encoded
+        const decodedUserId = atob(userId); // Decode base64 string
+
+        // Check if decoded userId is valid
+        if (!decodedUserId || isNaN(decodedUserId)) {
+            console.error("Decoded user ID is invalid.");
+            alert("Invalid user ID.");
+            return null;
+        }
+
+        // Make the API request with the decoded userId (as string)
+        const response = await fetch(`${apiUrl}/athletes/getIdByUserId/${decodedUserId}`);
+        if (!response.ok) {
+            console.error("Failed to fetch athlete ID:", await response.text());
+            return null;
+        }
+
+        return await response.json(); // Returns athlete ID
+    } catch (error) {
+        console.error("Error fetching athlete ID:", error);
+        return null;
+    }
+}
+// Function to fetch notifications for the athlete
+async function fetchNotifications() {
+    try {
+        const athleteId = await getAthleteId();
+        if (!athleteId) return;
+
+        const response = await fetch(`${apiUrl}/notifications/athlete/${athleteId}`);
+        if (!response.ok) {
+            console.error("Failed to fetch notifications:", await response.text());
+            return;
+        }
+
+        const notifications = await response.json();
+        displayNotifications(notifications);
+    } catch (error) {
+        console.error("Error fetching notifications:", error);
+    }
+}
+
+// Function to fetch event details for a given eventId
+async function fetchEventDetails(eventId) {
+    try {
+        const response = await fetch(`${apiUrl}/events/details/${eventId}`);
+        if (!response.ok) {
+            throw new Error("Failed to fetch event details");
+        }
+        return await response.json();
+    } catch (error) {
+        console.error(`Error fetching event details for Event ID ${eventId}:`, error);
+        return { eventTitle: "N/A", meetName: "N/A", eventLocation: "N/A", eventTime: "N/A" }; // Default values on error
+    }
+}
+
+// Function to extract eventId from message text
+function extractEventId(message) {
+    const match = message.match(/event ID:? (\d+)/i); // Match 'event ID: X' or 'event ID X'
+    return match ? parseInt(match[1], 10) : null; // Return the extracted eventId as an integer
+}
+
+
+async function displayNotifications(notifications) {
+    const notificationsList = document.getElementById("notifications-list");
+    notificationsList.innerHTML = ""; // Clear existing notifications
+
+    if (notifications.length === 0) {
+        notificationsList.innerHTML = "<li>No notifications found.</li>";
+        return;
+    }
+
+    // Sort notifications in descending order by creation time
+    notifications.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+    // Fetch event details for each notification
+    const eventDetailPromises = notifications.map(async (notification) => {
+        let eventId = notification.eventId; // Check if eventId exists directly
+        if (!eventId) {
+            // Try extracting eventId from the message text
+            eventId = extractEventId(notification.message);
+        }
+
+        if (eventId) {
+            const eventDetails = await fetchEventDetails(eventId);
+            return { ...notification, ...eventDetails };
+        } else {
+            return { ...notification, eventTitle: "N/A", meetName: "N/A", eventLocation: "N/A", eventTime: "N/A" }; // No eventId found
+        }
+    });
+
+    const notificationsWithDetails = await Promise.all(eventDetailPromises);
+
+    // Display notifications with event details
+    notificationsWithDetails.forEach((notification) => {
+        const listItem = document.createElement("li");
+        listItem.style.margin = "20px 0"; // Add some margin to each item for spacing
+        listItem.style.padding = "20px"; // Add padding for better readability
+        listItem.style.backgroundColor = "rgba(50, 50, 50, 0.85)"; // Darker background for better contrast
+        listItem.style.borderRadius = "12px"; // Rounded corners for a modern look
+        listItem.style.color = "#f4f4f4"; // White text color
+        listItem.style.cursor = "pointer"; // Indicate it's clickable
+        listItem.style.transition = "background-color 0.3s ease"; // Smooth transition on hover
+        listItem.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.3)"; // Subtle shadow for depth
+
+        // Create a container for the message
+        const messageContainer = document.createElement("div");
+        messageContainer.style.fontSize = "18px"; // Slightly larger text for better readability
+        messageContainer.style.marginBottom = "20px"; // Add some space after the message
+        messageContainer.innerHTML = `${notification.message}`;
+
+        // Create a button to view more details
+        const viewMoreButton = document.createElement("button");
+        viewMoreButton.innerText = "View More";
+        viewMoreButton.style.padding = "10px 20px";
+        viewMoreButton.style.backgroundColor = "#007bff"; // Blue background
+        viewMoreButton.style.color = "#fff"; // White text
+        viewMoreButton.style.border = "none";
+        viewMoreButton.style.borderRadius = "5px";
+        viewMoreButton.style.cursor = "pointer";
+        viewMoreButton.style.marginTop = "10px";
+        viewMoreButton.style.transition = "background-color 0.3s";
+
+        // Hover effect for the "View More" button
+        viewMoreButton.addEventListener("mouseenter", () => {
+            viewMoreButton.style.backgroundColor = "#0056b3";
+        });
+        viewMoreButton.addEventListener("mouseleave", () => {
+            viewMoreButton.style.backgroundColor = "#007bff";
+        });
+
+        // Create a table to display the event details
+        const table = document.createElement("table");
+        table.style.width = "100%";
+        table.style.borderCollapse = "collapse";
+        table.style.marginTop = "20px"; // More space between the message and table
+        table.style.marginBottom = "20px"; // Margin below the table
+        table.style.padding = "10px"; // Add padding around the table
+        table.style.display = "none"; // Initially hide the table
+        table.style.backgroundColor = "transparent"; // Transparent background for table
+        table.style.color = "#f4f4f4"; // White text color for the table
+        table.style.border = "1px solid #ddd"; // Light border for table
+        table.style.borderRadius = "8px"; // Rounded corners for the table to match the notification
+
+        // Create table header row
+        const headerRow = document.createElement("tr");
+        const th1 = document.createElement("th");
+        const th2 = document.createElement("th");
+        th1.innerText = "Detail";
+        th2.innerText = "Information";
+        th1.style.padding = "12px";
+        th1.style.backgroundColor = "#444"; // Darker header
+        th1.style.color = "#fff";
+        th1.style.width = "50%"; // 50% width for Detail column
+        th1.style.borderRight = "2px solid #ddd"; // Add border between columns
+        th2.style.padding = "12px";
+        th2.style.backgroundColor = "#444"; // Darker header
+        th2.style.color = "#fff";
+        th2.style.width = "50%"; // 50% width for Information column
+        headerRow.appendChild(th1);
+        headerRow.appendChild(th2);
+        table.appendChild(headerRow);
+
+        // Create a table row for each piece of data
+        const rows = [
+            { label: "Event Title", value: notification.eventTitle || 'N/A' },
+            { label: "Meet Name", value: notification.meetName || 'N/A' },
+            { label: "Location", value: notification.eventLocation || 'N/A' },
+            { label: "Time", value: notification.eventTime || 'N/A' }
+        ];
+
+        // Generate table rows dynamically with borders for rows and columns
+        rows.forEach((row) => {
+            const tr = document.createElement("tr");
+            const td1 = document.createElement("td");
+            const td2 = document.createElement("td");
+
+            td1.style.padding = "12px";
+            td1.style.fontWeight = "bold";
+            td1.style.border = "1px solid #ddd"; // Border for rows and columns
+            td2.style.padding = "12px";
+            td2.style.border = "1px solid #ddd"; // Border for rows and columns
+
+            td1.innerHTML = `<strong>${row.label}</strong>`;
+            td2.innerHTML = row.value;
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            table.appendChild(tr);
+        });
+
+        // Create a close button for the table
+        const closeButton = document.createElement("button");
+        closeButton.innerHTML = "&times;"; // Close symbol
+        closeButton.style.position = "absolute";
+        closeButton.style.top = "10px";
+        closeButton.style.right = "10px";
+        closeButton.style.fontSize = "24px";
+        closeButton.style.background = "transparent";
+        closeButton.style.border = "none";
+        closeButton.style.color = "#fff";
+        closeButton.style.cursor = "pointer";
+
+        closeButton.addEventListener("click", () => {
+            table.style.display = "none"; // Hide table when close button is clicked
+            viewMoreButton.style.display = "block"; // Show "View More" button again
+            listItem.style.backgroundColor = "rgba(50, 50, 50, 0.85)"; // Reset the background color
+        });
+
+        // Event listener for the view more button to show details
+        viewMoreButton.addEventListener("click", () => {
+            // Hide the "View More" button
+            viewMoreButton.style.display = "none";
+            // Show the table and change the notification background
+            table.style.display = "block";
+            listItem.style.backgroundColor = "rgba(70, 70, 70, 0.85)"; // Change background to indicate expanded
+            listItem.appendChild(closeButton); // Add close button
+        });
+
+        // Append message, button, and table to the list item
+        listItem.appendChild(messageContainer);
+        listItem.appendChild(viewMoreButton);
+        listItem.appendChild(table);
+
+        // Add the notification to the list
+        notificationsList.insertBefore(listItem, notificationsList.firstChild);
+
+        // Close table if user clicks anywhere outside
+        document.addEventListener("click", (e) => {
+            if (!listItem.contains(e.target)) {
+                table.style.display = "none"; // Hide table if clicked outside
+                viewMoreButton.style.display = "block"; // Show "View More" button again
+                listItem.style.backgroundColor = "rgba(50, 50, 50, 0.85)"; // Reset background color
+            }
+        });
+    });
+}
+
+ // Call fetchNotifications when the page loads
+ document.addEventListener("DOMContentLoaded", fetchNotifications);
+
+</script>
+</body>
+</html>

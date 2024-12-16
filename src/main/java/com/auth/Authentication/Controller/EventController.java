@@ -1,6 +1,7 @@
 package com.auth.Authentication.Controller;
 
 import com.auth.Authentication.Services.EventService;
+import com.auth.Authentication.Services.NotificationService;
 import com.auth.Authentication.entity.Event;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,12 +10,16 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/events")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class EventController {
     private final EventService eventService;
+    private final NotificationService notificationService; // Add NotificationService
 
-    public EventController(EventService eventService) {
+    public EventController(EventService eventService, NotificationService notificationService) {
         this.eventService = eventService;
+        this.notificationService = notificationService; // Inject NotificationService
     }
+
 
     // Create a new event
     @PostMapping("/create")
@@ -43,7 +48,19 @@ public class EventController {
         List<Event> events = eventService.findAllEvents();
         return ResponseEntity.ok(events);
     }
+    // Get events registered by an athlete
+    @GetMapping("/athlete/{athleteId}/registered")
+    public ResponseEntity<List<Event>> getEventsRegisteredByAthlete(@PathVariable Integer athleteId) {
+        List<Event> registeredEvents = eventService.findEventsRegisteredByAthlete(athleteId);
+        return ResponseEntity.ok(registeredEvents);
+    }
 
+    // Get events approved for an athlete
+    @GetMapping("/athlete/{athleteId}/approved")
+    public ResponseEntity<List<Event>> getEventsApprovedForAthlete(@PathVariable Integer athleteId) {
+        List<Event> approvedEvents = eventService.findEventsApprovedForAthlete(athleteId);
+        return ResponseEntity.ok(approvedEvents);
+    }
     // Get a specific event by ID
     @GetMapping("/details/{eventId}")
     public ResponseEntity<Event> fetchEventById(@PathVariable Integer eventId) {
@@ -62,6 +79,10 @@ public class EventController {
     @PostMapping("/{eventId}/athlete/{athleteId}/accept")
     public ResponseEntity<Event> approveAthlete(@PathVariable Integer eventId, @PathVariable Integer athleteId) {
         Event event = eventService.acceptAthlete(eventId, athleteId);
+
+        // Send notification after accepting athlete
+//        notificationService.sendNotification(athleteId, "Congratulations, your registration has been ACCEPTED for event ID: " + eventId);
+
         return ResponseEntity.ok(event);
     }
 
@@ -69,6 +90,10 @@ public class EventController {
     @PostMapping("/{eventId}/athlete/{athleteId}/decline")
     public ResponseEntity<Event> rejectAthlete(@PathVariable Integer eventId, @PathVariable Integer athleteId) {
         Event event = eventService.declineAthlete(eventId, athleteId);
+
+        // Send notification after declining athlete
+//        notificationService.sendNotification(athleteId, "Sorry, your registration has been DECLINED for event ID: " + eventId);
+
         return ResponseEntity.ok(event);
     }
 

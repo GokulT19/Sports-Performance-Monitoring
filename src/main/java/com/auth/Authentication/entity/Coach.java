@@ -32,7 +32,7 @@ public class Coach {
     private String gender = "Unspecified"; // Default gender
 
     @Column(length = 50, nullable = false)
-    private String category = "General"; // Default category
+    private String category = "Null"; // Default category
 
     @Column(length = 255)
     private String photoUrl = "http://default-photo-url.com"; // Default photo URL
