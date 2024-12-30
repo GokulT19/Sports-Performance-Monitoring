@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5ec03e4f-e1e0-4d84-a8d1-d53e1cbae03c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Controller/EventResultController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Repository/EventResultRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Services/ResultService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/dto/ResultDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/entity/EventResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/athleteongoingevents.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/athleteresults.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/coachAthlete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/coachnews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Controller/AthleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Controller/AthleteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Controller/CoachController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Controller/CoachController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Controller/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Services/AthleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Services/AthleteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/entity/Athlete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/entity/Athlete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/entity/Coach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/entity/Coach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/AdminProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/AdminProfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/AdminU.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Allatest-news.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Allatest-news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Allpast-events.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Allpast-events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin-Resultss.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin-Resultss.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin-coaches.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin-coaches.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin-create-events.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin-create-events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin-create-meet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin-create-meet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin-news.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin-news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin-publish-results.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin-publish-results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin-shortlist-candidates.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin-shortlist-candidates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/adminathletes.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/adminathletes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admindasboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admindasboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/athlet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/athlet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/athlete.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/athlete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/athleteachivement.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/athletecoaches.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/athletecoaches.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/athleteeventregistration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/athleteeventregistration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/athletenotifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/athletenotifications.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/athleteprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/athleteprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/athleterankings.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/background1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/coachProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/coachProfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/coachdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/coachdashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/coachevents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/coachevents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/coachmyteam.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/coachnotifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/coachnotifications.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/coachperformance.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/coachperformance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/coachteams.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/cric.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/trending.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/trending.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Controller/AthleteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Controller/AthleteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Controller/CoachController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Controller/CoachController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Controller/EventController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Controller/EventController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Services/AthleteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Services/AthleteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/auth/Authentication/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/entity/Athlete.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/auth/Authentication/entity/Athlete.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/AdminProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/AdminProfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/AdminU.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/Allatest-news.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/Allatest-news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/Allpast-events.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/Allpast-events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/admin-Resultss.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/admin-Resultss.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/admin-coaches.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/admin-coaches.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/admin-create-events.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/admin-create-events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/admin-create-meet.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/admin-create-meet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/admin-news.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/admin-news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/admin-publish-results.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/admin-publish-results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/admin-shortlist-candidates.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/admin-shortlist-candidates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/adminathletes.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/adminathletes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/admindasboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/admindasboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/athlet.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/athlet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/athlete.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/athlete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/athleteachivement.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/athletecoaches.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/athletecoaches.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/athleteeventregistration.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/athleteeventregistration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/athletenotifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/athletenotifications.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/athleteprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/athleteprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/athleterankings.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/background1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/coachProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/coachProfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/coachdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/coachdashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/coachevents.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/coachevents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/coachmyteam.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/coachnotifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/coachnotifications.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/coachperformance.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/coachperformance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/coachteams.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/cric.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/trending.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/trending.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GokulT19&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Mariajoseline/Infosys-springboard-project.git&quot;,
+    &quot;accountId&quot;: &quot;a4c579a1-fbec-483d-941b-c69dedf29602&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2qTXWqawcJ5NJUkKOSxFnter8R8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AuthenticationApplication.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kumar/OneDrive/Desktop/sample new/update 261224/Authentication-main&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kumar\OneDrive\Desktop\sample new\update 261224\Authentication-main\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="AuthenticationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.auth.Authentication.AuthenticationApplication" />
+      <module name="Authentication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.auth.Authentication.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AuthenticationApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ec03e4f-e1e0-4d84-a8d1-d53e1cbae03c" name="Changes" comment="" />
+      <created>1734687576909</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734687576909</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/auth/Authentication/entity/Event.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Authentication_main$AuthenticationApplication.ic" NAME="AuthenticationApplication Coverage Results" MODIFIED="1734688230037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.auth.Authentication.*</FILTER>
+    </SUITE>
+  </component>
+</project>

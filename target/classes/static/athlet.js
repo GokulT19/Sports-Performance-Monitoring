@@ -115,8 +115,8 @@
 //
 //        if (response.ok) {
 //            // Encrypt and store the token securely
-//            sessionStorage.setItem("token", encryptData(data.token));
-//            sessionStorage.setItem("username", encryptData(username));
+//            localStorage.setItem("token", encryptData(data.token));
+//            localStorage.setItem("username", encryptData(username));
 //            localStorage.setItem("userId", encryptData(data.userId));
 //
 //            showPopup("Login successful!");

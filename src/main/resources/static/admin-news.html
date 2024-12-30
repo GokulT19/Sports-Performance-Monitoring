@@ -135,6 +135,8 @@ color: #333;
 .dropdown {
     position: relative;
     left: -4em;
+    margin-left: 40px;
+    margin-right:-60px ;
 }
 
 .dropdown-content {
@@ -168,6 +170,33 @@ color: #333;
     background-color: rgba(50, 50, 50, 0.9);
     color: var(--secondary-color);
 }
+@keyframes dropdownSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.2rem; }
+        }
 /* ----------------------------------- */
 .tabs {
     display: flex;
@@ -404,18 +433,30 @@ transform: translateY(-3px);
 <div class="overlay"></div>
 
 <!-- Navbar -->
+<div class="overlay"></div>
+
+<!-- Navbar -->
 <nav>
     <div class="brand">Admin</div>
     <div class="nav-links">
         <a href="admindasboard.html">Home</a>
         <a href="admin-news.html">News</a>
-        <a href="admin-create-events.html">Events</a>
-        <a href="admin-Resultss.html">Results</a>
+        <br>
+       
+        <li class="dropdown">
+            <a href="#events">Events</a>
+            <div class="dropdown-content">
+                <a href="admin-upcomingevents.html">Upcoming Events</a>
+                <a href="admin-ongoingevents.html">Ongoing Events</a>
+                <a href="admin-Allpast-events.html">Past Events</a>
+            </div>
+        </li>     
+       <a href="admin-Resultss.html">Results</a>
         <a href="admin-coaches.html">Coaches</a>
         <a href="adminathletes.html">Athletes</a>
         <a href="AdminProfile.html">Profile</a>
-        <a href="index.html">Logout</a>
-    </div>
+        <li><a href="index.html" id="logoutlink" onclick="logout()">Logout</a></li>
+      </div>
 </nav>
 <!-- Content Section -->
 <div class="content-section">
@@ -475,8 +516,43 @@ transform: translateY(-3px);
         </div>
     </div>
 </div>
+<script src="tokens.js"></script>
+
 <script>
-    const logoutLink = document.getElementById("logout");
+  // Retrieve stored data from localStorage or sessionStorage
+  const username = localStorage.getItem("username") || sessionStorage.getItem("username");
+    
+    // Initial session check
+    if (username!="legends") {
+        logout();
+        return;
+    }
+// Logout function
+let sessionCheckInterval; // Variable to store the interval
+
+// Enhanced logout function
+function logout() {
+    // Clear all storage
+    localStorage.clear();
+    sessionStorage.clear();
+    
+    // Clear the interval if it exists
+    if (sessionCheckInterval) {
+        clearInterval(sessionCheckInterval);
+    }
+    
+    // Redirect to login page
+    window.location.href = 'index.html';
+}
+
+// Function to check session validity
+function checkSession() {
+    const username = localStorage.getItem("username");
+    if (!username) {
+        console.log("Session invalid: Username not found");
+        logout();
+    }
+}    const logoutLink = document.getElementById("logout");
     const logoutPopup = document.getElementById("logoutPopup");
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");

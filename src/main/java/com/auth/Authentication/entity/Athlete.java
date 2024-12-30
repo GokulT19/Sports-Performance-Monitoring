@@ -28,7 +28,7 @@ public class Athlete {
     private String lastName = "Last Name"; // Default last name
 
     @Column(nullable = true)
-    private LocalDate birthDate = LocalDate.of(2000, 1, 1); // Default birth date
+    private LocalDate birthDate = LocalDate.of(2005, 6, 12); // Default birth date
 
     @Column(nullable = true, length = 50)
     private String gender = "Unspecified"; // Default gender

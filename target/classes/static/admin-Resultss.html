@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Event Results</title>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-  />
-
-  <style>
-    /* General Styling */
-           :root {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>see results</title>
+    <style>
+        :root {
     --primary-color: #0077be;
     --secondary-color: #00a86b;
     --background-dark: #121212;
@@ -128,7 +122,81 @@ color: #333;
     color: var(--secondary-color);
     transform: translateY(-3px);
 }
-    /* Overlay for better readability */
+
+.logo {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+.dropdown {
+    position: relative;
+    left: -4em;
+    margin-left: 40px;
+    margin-right:-60px ;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(30, 30, 30, 0.9);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: dropdownSlideIn 0.3s ease;
+}
+
+.dropdown-content a {
+    color: var(--text-light);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(50, 50, 50, 0.9);
+    color: var(--secondary-color);
+}
+@keyframes dropdownSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.2rem; }
+        }/* Overlay for better readability */
     .overlay{
         position: absolute;
         top: 0;
@@ -155,65 +223,221 @@ color: #333;
         text-align: center;
     }
 
-    .results-card {
-        margin-top: 30px;
-        border-radius: 15px;
-        overflow: hidden;
-        background-color: rgba(0, 0, 0, 0.6);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.3s ease;
-    }
+    .button-container {
+            margin: 20px 0;
+        }
 
-    .results-card:hover {
-        transform: translateY(-10px);
-    }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ffa500;
+            border: none;
+            border-radius: 5px;
+            color: black;
+        }
 
-    .results-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
+        button:hover {
+            background-color: #ff8800;
+        }
 
-    .results-card-body {
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgba(1, 28, 55, 0.8);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(1, 28, 55, 0.6);
+        }
+
+        .no-results {
+            font-size: 18px;
+            color: red;
+        }
+        /* new*/
+        
+
+/* Page title */
+.page-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: whitesmoke;
+}
+
+/* Table styling */
+.events-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border-radius: 30px;
+}
+
+.events-table th,
+.events-table td {
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.events-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.events-table tr:nth-child(even) {
+    background-color:#333;
+    color:white ;
+}
+.events-table tr:nth-child(odd) {
+    background-color:rgba(30, 30, 30, 0.9);
+    color:white ;
+
+}
+
+.events-table tr:hover {
+    background-color:#999;
+}
+
+.view-results-btn {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-results-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Popup overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Popup content */
+.popup-content {
+    background: linear-gradient(108deg, rgba(16,16,18,1) 0%, rgba(1,28,55,1) 100%);
         padding: 20px;
-        color: #ffffff;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #333;
+    text-align: center;
+}
+
+.popup-content p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.popup-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border-radius: 20px;
+}
+
+.popup-content th,
+.popup-content td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.popup-content th {
+    background-color: #007bff;
+    color: white;
+}
+
+.popup-content tr:nth-child(even) {
+    background-color:#333;
+    color:white ;
+
+}
+.popup-content tr:nth-child(odd) {
+    background-color:#555;
+    color:white ;
+
+}
+
+.popup-content tr:hover {
+    background-color:black;
+}
+
+/* Close button */
+.close-popup-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+}
+.containers {
+            margin: 120px auto 50px;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+.close-popup-btn:hover {
+    color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 95%;
     }
 
-    .results-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 10px;
+    .events-table,
+    .popup-content table {
+        font-size: 12px;
     }
 
-    .results-description {
-        font-size: 1rem;
-        margin-bottom: 10px;
+    .popup-content p {
+        font-size: 12px;
     }
-
-    .results-date {
-        font-size: 0.9rem;
-        color: #ffa500;
-    }
-
-    /* Back Button Styling */
-    .back-button {
-        margin-bottom: 20px;
-        display: inline-block;
-        background-color: #6c757d;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .back-button:hover {
-        background-color: #5a6268;
-        transform: translateY(-3px);
-    }
+}
 
   </style>
 </head>
@@ -223,83 +447,249 @@ color: #333;
 
 <!-- Navbar -->
 <nav>
-  <div class="brand">Admin</div>
-  <div class="nav-links">
-    <a href="admindasboard.html">Home</a>
-    <a href="admin-news.html">News</a>
-    <a href="admin-create-events.html">Events</a>
-    <a href="admin-Resultss.html">Results</a>
-    <a href="admin-coaches.html">Coaches</a>
-    <a href="adminathletes.html">Athletes</a>
-    <a href="AdminProfile.html">Profile</a>
-    <a href="index.html">Logout</a>
-  </div>
+    <div class="brand">Admin</div>
+    <div class="nav-links">
+        <a href="admindasboard.html">Home</a>
+        <a href="admin-news.html">News</a>
+        <br>
+       
+        <li class="dropdown">
+            <a href="#events">Events</a>
+            <div class="dropdown-content">
+                <a href="admin-upcomingevents.html">Upcoming Events</a>
+                <a href="admin-ongoingevents.html">Ongoing Events</a>
+                <a href="admin-Allpast-events.html">Past Events</a>
+            </div>
+        </li>     
+       <a href="admin-Resultss.html">Results</a>
+        <a href="admin-coaches.html">Coaches</a>
+        <a href="adminathletes.html">Athletes</a>
+        <a href="AdminProfile.html">Profile</a>
+        <li><a href="index.html" id="logoutlink" onclick="logout()">Logout</a></li>
+      </div>
 </nav>
-
-  <div class="container">
-    <h2>Event Results</h2>
-
-    <!-- Result Card 1 -->
-    <div class="results-card">
-      <img src="https://images.unsplash.com/photo-1561343277-0796f75a91c8" alt="Marathon Image">
-      <div class="results-card-body">
-        <h3 class="results-title">City Marathon Results</h3>
-        <p class="results-description">
-          The City Marathon saw fierce competition with Sam Harris finishing in first place with a time of 2:30:15. Emily Clark followed closely in the women's category with a time of 2:45:10.
-        </p>
-        <p class="results-date">Published: 2024-07-01</p>
-      </div>
+<br>
+<br>
+<br>
+<br>
+<div class="containers">
+    <h1 class="page-title">Event Results</h1>
+    <div id="resultsContainer">
+        <!-- Event results will be dynamically loaded here -->
     </div>
+</div>
 
-    <!-- Result Card 2 -->
-    <div class="results-card">
-      <img src="https://images.unsplash.com/photo-1580917636231-8e5ef67a09f4" alt="Cycling Race Image">
-      <div class="results-card-body">
-        <h3 class="results-title">Mountain Cycling Championship</h3>
-        <p class="results-description">
-          The Mountain Cycling Championship took place in the scenic hills, where Jake Roberts dominated the men’s category with a time of 1:05:30. In the women's category, Sophie Lee claimed the top spot with 1:15:20.
-        </p>
-        <p class="results-date">Published: 2024-06-25</p>
-      </div>
-    </div>
+<script src="tokens.js"></script>
 
-    <!-- Result Card 3 -->
-    <div class="results-card">
-      <img src="https://images.unsplash.com/photo-1582547209891-4e7223fef81c" alt="Swimming Competition Image">
-      <div class="results-card-body">
-        <h3 class="results-title">National Swimming Championship</h3>
-        <p class="results-description">
-          The National Swimming Championship saw incredible performances. John Doe broke the record in the 100m freestyle, finishing at 47.5 seconds. Mary Johnson won the 100m breaststroke with a time of 1:05.4.
-        </p>
-        <p class="results-date">Published: 2024-06-10</p>
-      </div>
-    </div>
+<script>
+ 
+// Logout function
+let sessionCheckInterval; // Variable to store the interval
 
-    <!-- Result Card 4 -->
-    <div class="results-card">
-      <img src="https://images.unsplash.com/photo-1604592196211-f3da6f987227" alt="Tennis Tournament Image">
-      <div class="results-card-body">
-        <h3 class="results-title">Grand Slam Tennis Tournament</h3>
-        <p class="results-description">
-          In a thrilling final, David Williams defeated Alex Turner in straight sets, 6-4, 6-2, to claim his fifth Grand Slam title. The women’s final was won by Sarah Brown after an intense match against Emma Davis.
-        </p>
-        <p class="results-date">Published: 2024-05-18</p>
-      </div>
-    </div>
+// Enhanced logout function
+function logout() {
+    // Clear all storage
+    localStorage.clear();
+    sessionStorage.clear();
+    
+    // Clear the interval if it exists
+    if (sessionCheckInterval) {
+        clearInterval(sessionCheckInterval);
+    }
+    
+    // Redirect to login page
+    window.location.href = 'index.html';
+}
 
-    <!-- Result Card 5 -->
-    <div class="results-card">
-      <img src="https://images.unsplash.com/photo-1570533528297-5750330f8e6c" alt="Football Tournament Image">
-      <div class="results-card-body">
-        <h3 class="results-title">International Football Cup</h3>
-        <p class="results-description">
-          The International Football Cup ended with a dramatic final as Barcelona secured a 3-1 victory over Real Madrid. Messi scored two goals, with the third coming from Griezmann to seal the win.
-        </p>
-        <p class="results-date">Published: 2024-05-25</p>
-      </div>
-    </div>
+// Function to check session validity
+function checkSession() {
+    const username = localStorage.getItem("username");
+    if (!username) {
+        console.log("Session invalid: Username not found");
+        logout();
+    }
+}document.addEventListener('DOMContentLoaded', async () => {
+    
 
-  </div>
+    // Fetch and display event results
+    await fetchAndDisplayEventResults();
+});
 
+async function fetchAndDisplayEventResults() {
+    try {
+        const response = await fetch('http://localhost:8080/api/event-results/all');
+        if (!response.ok) throw new Error(`Failed to fetch results: ${response.statusText}`);
+        
+        const results = await response.json();
+        const groupedResults = groupResultsByEvent(results);
+
+        // Sort events by published date in descending order
+        const sortedEvents = Object.keys(groupedResults).sort((a, b) => 
+            new Date(groupedResults[b].publishedDate) - new Date(groupedResults[a].publishedDate)
+        );
+
+        const resultsContainer = document.getElementById('resultsContainer');
+        resultsContainer.innerHTML = ''; // Clear container
+
+        // Create the events table
+        let tableHtml = 
+            `<table class="events-table">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Event Date</th>
+                        <th>Event Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+
+        for (const eventId of sortedEvents.reverse()) { // Display from bottom to top
+            const eventDetails = await fetchEventDetails(eventId);  // Fetch event details
+
+            if (!eventDetails) continue;  // Skip if no event details
+
+            // Fetch the event results related to this event to get the publishedDate
+            const eventResults = groupedResults[eventId];
+            const publishedDate = eventResults.length > 0 ? eventResults[0].publishedDate : 'N/A';
+
+            tableHtml += 
+                `<tr>
+                    <td>${eventDetails.eventTitle || 'N/A'}</td>
+                    <td>${eventDetails.eventDate || 'N/A'}</td>
+                    <td>${eventDetails.eventTime || 'N/A'}</td>
+                    <td>
+                        <button class="view-results-btn" data-event-id="${eventId}">
+                            View Results
+                        </button>
+                    </td>
+                </tr>`;
+        }
+
+        tableHtml += '</tbody></table>';
+        resultsContainer.innerHTML = tableHtml;
+
+        // Add event listeners to the "View Results" buttons
+        const viewButtons = document.querySelectorAll('.view-results-btn');
+        viewButtons.forEach(button => {
+            button.addEventListener('click', async (event) => {
+                const eventId = event.target.getAttribute('data-event-id');
+                if (!eventId) return; // Prevent errors if eventId is missing
+                await showResultsPopup(eventId, groupedResults[eventId]);
+            });
+        });
+    } catch (error) {
+        console.error('Error fetching and displaying results:', error);
+        document.getElementById('resultsContainer').innerHTML = '<p class="no-results">Error fetching results. Please try again later.</p>';
+    }
+}
+
+// Function to fetch event details from the backend
+async function fetchEventDetails(eventId) {
+    try {
+        const response = await fetch(`http://localhost:8080/api/events/details/${eventId}`);
+        if (!response.ok) throw new Error(`Failed to fetch event details: ${response.statusText}`);
+        const eventDetails = await response.json();
+        return eventDetails;  // Return event details from backend
+    } catch (error) {
+        console.error(`Error fetching event details for event ${eventId}:`, error);
+        return null;  // Return null if there is an error
+    }
+}
+
+
+// Show results popup
+async function showResultsPopup(eventId, eventDetails) {
+    // Sort athletes by score in descending order
+    const sortedAthletes = eventDetails.results.sort((a, b) => b.score - a.score);
+
+    // Generate popup HTML
+    let popupHtml = 
+        `<div class="popup-overlay">
+            <div class="popup-content">
+                <button class="close-popup-btn">X</button>
+                <h1>Results</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Athlete Name</th>
+                            <th>Score</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+
+    // Loop over sorted athletes and display results with rank
+    let rank = 1;
+    for (const result of sortedAthletes) {
+        const athlete = await fetchAthleteDetails(result.athleteId);
+        popupHtml += 
+            `<tr>
+                <td>${rank <= 3 ? `${rank}${getPrizeSuffix(rank)}` : rank}</td>
+                <td>${athlete ? `${athlete.firstName} ${athlete.lastName}` : 'N/A'}</td>
+                <td>${result.score}</td>
+                <td>${result.remarks || 'No remarks'}</td>
+            </tr>`;
+        rank++;
+    }
+
+    popupHtml += 
+                    `</tbody>
+                </table>
+            </div>
+        </div>`;
+
+    // Append popup to the body
+    const popupElement = document.createElement('div');
+    popupElement.innerHTML = popupHtml;
+    document.body.appendChild(popupElement);
+
+    // Add event listener to close popup
+    document.querySelector('.close-popup-btn').addEventListener('click', () => {
+        document.body.removeChild(popupElement);
+    });
+}
+
+// Get suffix for prize positions
+function getPrizeSuffix(rank) {
+    if (rank === 1) return 'st';
+    if (rank === 2) return 'nd';
+    if (rank === 3) return 'rd';
+    return 'th';
+}
+
+// Group results by event
+function groupResultsByEvent(results) {
+    const grouped = {};
+    for (const result of results) {
+        if (!grouped[result.eventId]) {
+            grouped[result.eventId] = {
+                eventTitle: '',
+                eventDate: '',
+                eventTime: '',
+                publishedDate: '',
+                results: []
+            };
+        }
+
+        grouped[result.eventId].results.push(result);
+    }
+    return grouped;
+}
+
+// Fetch athlete details
+async function fetchAthleteDetails(athleteId) {
+    try {
+        const response = await fetch(`http://localhost:8080/api/athletes/${athleteId}`);
+        if (!response.ok) throw new Error(`Failed to fetch athlete details`);
+        return await response.json();
+    } catch (error) {
+        console.error(`Error fetching athlete details for ID ${athleteId}:`, error);
+        return null;
+    }
+}
+
+</script>
 </body>
 </html>

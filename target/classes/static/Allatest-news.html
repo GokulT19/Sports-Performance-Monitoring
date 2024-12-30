@@ -10,10 +10,10 @@
 
         :root {
             --primary-color: #0077be;
-            --secondary-color: #00a86b;
+            --secondary-color: #ffa500;
             --background-dark: #121212;
             --text-light: #f4f4f4;
-            --gradient-primary: linear-gradient(135deg, #0077be 0%, #00a86b 100%);
+            --gradient-primary: linear-gradient(135deg, #eaecdb 0%, #fdd007 100%);
         }
 
         * {
@@ -42,7 +42,7 @@
             z-index: 1000;
             transition: background-color 0.3s ease;
             backdrop-filter: blur(10px);
-            border-bottom: 10px solid white; /* Adjust the color and width as needed */
+            
 
         }
 
@@ -131,7 +131,7 @@
             position: absolute;
             background-color: rgba(30, 30, 30, 0.9);
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px #ffa500;(0,0,0,0.2);
             z-index: 1;
             top: 100%;
             left: 0;
@@ -169,7 +169,7 @@
   -webkit-backdrop-filter: blur(10px); /* Blur effect for Safari */
   border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
   text-align: center;
-  color: rgba(255, 255, 255, 0.9); /* Light text */
+  color: #ffa500;(255, 255, 255, 0.9); /* Light text */
 
         }
 
@@ -224,8 +224,9 @@
             color: black;
         }
 
-        h2{
+        h1{
         text-align: center;
+        color: #ffa500;
         margin-bottom: 25px;
 
        }
@@ -300,8 +301,8 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
-        .news-card h2 {
-            color: blanchedalmond;
+        .news-card h3 {
+            color: #ffa500;
             margin-bottom: 10px;
         }
 
@@ -347,7 +348,13 @@
             display: flex;
             justify-content: space-around;
         }
-
+        .logo {
+            color:#ffa500;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
         .popup-buttons button {
             padding: 10px 20px;
             border: none;
@@ -379,7 +386,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     .notification-link {
@@ -407,7 +414,7 @@
     }
 
     .notification-icon i {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color: var(--text-light);
         transition: color 0.3s ease;
         margin-right: 5px;
@@ -422,7 +429,7 @@
 <body>
 <!-- Navigation -->
 <header class="navbar">
-    <div class="logo">Athletes</div>
+    <div class="logo" id="userDetails">Athletes</div>
 
     <ul class="nav-links">
         <li class="dropdown">
@@ -436,67 +443,60 @@
             </div>
         </li>
         <li class="dropdown">
-            <a href="athleteeventregistration.html">Events</a>
+            <a href="#events">Events</a>
             <div class="dropdown-content">
                 <a href="athleteeventregistration.html">Upcoming Events</a>
-                <a href="#">Ongoing Events</a>
+                <a href="athleteongoingevents.html">Ongoing Events</a>
                 <a href="Allpast-events.html">Completed Events</a>
             </div>
         </li>
-        <li class="dropdown">
-            <a href="#athletes">Athletes</a>
-            <div class="dropdown-content">
-                <a href="athleteprofile.html">Athlete Profile</a>
-                <a href="athleterankings.html">Rankings</a>
-                <a href="athleteachivement.html">Achievements</a>
-                <a href="athletenotifications.html">Notifications</a>
-            </div>
-        </li>
+        <li><a href="athleteresults.html">Results</a></li>
         <li><a href="athletecoaches.html">Coaches</a></li>
+        <a href="athleteprofile.html">Profile</a>
         <li class="notification-icon">
             <a href="athletenotifications.html" class="notification-link">
                 <i class="fas fa-bell"></i>
                 <span class="notification-dot" id="notificationDot"></span>
             </a>
         </li>
-        <li><a href="index.html" id="logoutlink">Logout</a></li>
+        <li><a href="index.html" id="logoutlink" onclick="logout()">Logout</a></li>
     </ul>
 </header>
 <!-- Content Section -->
 <div class="content-section">
-    <h2>Latest News</h2>
+    <h1>Latest News</h1>
     <div class="news-card-section">
         <div class="news-card">
-            <h2>BGT 2024-2025</h2>
+            <h3>BGT 2024-2025</h3>
             <div class="date">December 08, 2024</div>
             <p class="summary">Australia has the Upper hand over India in the Pink ball Test. Rishabh and Reddy has to save India to continue the lead in the Series.</p>
         </div>
 
         <div class="news-card">
-            <h2>Rising Star Joins National Team</h2>
+            <h3>Rising Star Joins National Team</h3>
             <div class="date">November 28, 2024</div>
             <p class="summary">Young prodigy Michael Rodriguez is selected to join the national swimming team after his breakthrough performances this season.</p>
         </div>
 
         <div class="news-card">
-            <h2>Training Technology Revolution</h2>
+            <h3>Training Technology Revolution</h3>
             <div class="date">November 15, 2024</div>
             <p class="summary">New AI-powered training systems are transforming athlete preparation, offering unprecedented insights into performance and injury prevention.</p>
         </div>
 
         <div class="news-card">
-            <h2>International Marathon Announced</h2>
+            <h3>International Marathon Announced</h3>
             <div class="date">November 10, 2024</div>
             <p class="summary">The annual Global Marathon will take place in New York City, featuring top athletes from around the world competing for the prestigious title.</p>
         </div>
 
         <div class="news-card">
-            <h2>Women's Basketball Championship</h2>
+            <h3>Women's Basketball Championship</h3>
             <div class="date">November 5, 2024</div>
             <p class="summary">The national women's basketball team clinches a historic victory in the international tournament, showcasing exceptional teamwork and skill.</p>
         </div>
         <div class="news-card">
-            <h2>Olympic Champion Sets New World Record</h2>
+            <h3>Olympic Champion Sets New World Record</h3>
             <div class="date">December 5, 2024</div>
             <p class="summary">Sarah Johnson breaks the world record in the 400m sprint, stunning audiences with her incredible performance at the World Athletics Championships.</p>
         </div>
@@ -521,7 +521,36 @@
         </div>
     </div>
 </div>
+<script src="tokens.js"></script>
+<script src="athleteauth.js"></script>
+
 <script>
+    
+    let sessionCheckInterval; // Variable to store the interval
+
+// Enhanced logout function
+function logout() {
+    // Clear all storage
+    localStorage.clear();
+    sessionStorage.clear();
+
+    // Clear the interval if it exists
+    if (sessionCheckInterval) {
+        clearInterval(sessionCheckInterval);
+    }
+
+    // Redirect to login page
+    window.location.href = 'index.html';
+}
+
+// Function to check session validity
+function checkSession() {
+    const username = localStorage.getItem("username");
+    if (!username) {
+        console.log("Session invalid: Username not found");
+        logout();
+    }
+}
     const logoutLink = document.getElementById("logout");
     const logoutPopup = document.getElementById("logoutPopup");
     const yesBtn = document.getElementById("yesBtn");

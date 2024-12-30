@@ -2,16 +2,24 @@ package com.auth.Authentication.Controller;
 
 import com.auth.Authentication.entity.Athlete;
 import com.auth.Authentication.Services.AthleteService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/athletes")
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 public class AthleteController {
+
+    @Value("${upload.dir}")
+    private String uploadDir;
 
     private final AthleteService athleteService;
 
@@ -80,5 +88,44 @@ public class AthleteController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteAthlete(@PathVariable Integer id) {
         return athleteService.deleteAthlete(id);
+    }
+
+
+    @PostMapping("/uploadProfilePicture")
+    public ResponseEntity<String> uploadProfilePicture(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("athleteId") Integer athleteId) {
+
+        if (file.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No file uploaded");
+        }
+
+        try {
+            // Validate the file type (optional)
+            String contentType = file.getContentType();
+            if (contentType == null || !contentType.startsWith("image/")) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid file type. Please upload an image.");
+            }
+
+            // Create a unique file name to prevent overwriting
+            String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
+            String filePath = uploadDir + File.separator + fileName;
+
+            // Save the file to the server
+            File dest = new File(filePath);
+            file.transferTo(dest);
+
+            // Update the athlete's profile picture URL in the database
+            String photoUrl = "/uploads/" + fileName;
+            Athlete updatedAthlete = athleteService.updateAthleteProfilePicture(athleteId, photoUrl);
+
+            if (updatedAthlete != null) {
+                return ResponseEntity.ok("Profile picture uploaded successfully!");
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Athlete not found");
+            }
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving file: " + e.getMessage());
+        }
     }
 }

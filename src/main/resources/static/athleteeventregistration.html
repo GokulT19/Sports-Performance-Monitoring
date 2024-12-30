@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athlete Portal</title>
+    <title>Upcomming events </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
         :root {
             --primary-color: #0077be;
-            --secondary-color: #00a86b;
+            --secondary-color: #ffa500;
             --background-dark: #121212;
             --text-light: #f4f4f4;
-            --gradient-primary: linear-gradient(135deg, #0077be 0%, #00a86b 100%);
+            --gradient-primary: linear-gradient(135deg, #eaecdb 0%, #fdd007 100%);
         }
 
         * {
@@ -42,12 +42,12 @@
             z-index: 1000;
             transition: background-color 0.3s ease;
             backdrop-filter: blur(10px);
-            border-bottom: 10px solid white; /* Adjust the color and width as needed */
+
 
         }
 
         .logo {
-            color: var(--text-light);
+            color:#ffa500;
             font-size: 1.8rem;
             font-weight: bold;
             text-transform: uppercase;
@@ -131,7 +131,7 @@
             position: absolute;
             background-color: rgba(30, 30, 30, 0.9);
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px #ffa500;(0,0,0,0.2);
             z-index: 1;
             top: 100%;
             left: 0;
@@ -160,6 +160,7 @@
         .container {
             margin: 100px auto;
             padding: 20px;
+            color: #ffa500;;
             max-width: 1200px;
         }
 
@@ -172,7 +173,6 @@
     }
 
     .event-card {
-        width: 300px;
         background:black;
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -252,12 +252,12 @@
         background-color: #dc3545;
     }
     @keyframes dropdownSlideIn {
-            from { 
-                opacity: 0; 
+            from {
+                opacity: 0;
                 transform: translateY(-10px);
             }
-            to { 
-                opacity: 1; 
+            to {
+                opacity: 1;
                 transform: translateY(0);
             }
         }
@@ -272,8 +272,8 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links { 
-                display: none; 
+            .nav-links {
+                display: none;
             }
             .hero-content h1 { font-size: 2.5rem; }
             .hero-content p { font-size: 1.2rem; }
@@ -283,7 +283,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     .notification-link {
@@ -311,7 +311,7 @@
     }
 
     .notification-icon i {
-        font-size: 1.5rem;
+        font-size: 1rem;
         color: var(--text-light);
         transition: color 0.3s ease;
         margin-right: 5px;
@@ -326,7 +326,7 @@
 <body>
 <!-- Navigation -->
 <header class="navbar">
-    <div class="logo">Athletes</div>
+    <div class="logo" id="userDetails">Athletes</div>
 
     <ul class="nav-links">
         <li class="dropdown">
@@ -340,30 +340,23 @@
             </div>
         </li>
         <li class="dropdown">
-            <a href="athleteeventregistration.html">Events</a>
+            <a href="#events">Events</a>
             <div class="dropdown-content">
                 <a href="athleteeventregistration.html">Upcoming Events</a>
-                <a href="#">Ongoing Events</a>
+                <a href="athleteongoingevents.html">Ongoing Events</a>
                 <a href="Allpast-events.html">Completed Events</a>
             </div>
         </li>
-        <li class="dropdown">
-            <a href="#athletes">Athletes</a>
-            <div class="dropdown-content">
-                <a href="athleteprofile.html">Athlete Profile</a>
-                <a href="athleterankings.html">Rankings</a>
-                <a href="athleteachivement.html">Achievements</a>
-                <a href="athletenotifications.html">Notifications</a>
-            </div>
-        </li>
+        <li><a href="athleteresults.html">Results</a></li>
         <li><a href="athletecoaches.html">Coaches</a></li>
+        <a href="athleteprofile.html">Profile</a>
         <li class="notification-icon">
             <a href="athletenotifications.html" class="notification-link">
                 <i class="fas fa-bell"></i>
                 <span class="notification-dot" id="notificationDot"></span>
             </a>
         </li>
-        <li><a href="index.html" id="logoutlink">Logout</a></li>
+        <li><a href="index.html" id="logoutlink" onclick="logout()">Logout</a></li>
     </ul>
 </header>
 <div class="background-container">
@@ -377,37 +370,61 @@
         <!-- Event cards will be dynamically generated here -->
     </div>
 </div>
+<script src="tokens.js"></script>
+<script src="athleteauth.js"></script>
 
 <script>
-    let athleteId;
+    let athleteId;  // Standardize the name to camelCase
+    let sessionCheckInterval; // Variable to store the interval
 
-document.addEventListener('DOMContentLoaded', () => {
-// Retrieve and decrypt athleteId from sessionStorage
-const encryptedAthleteId = sessionStorage.getItem("athleteId");
-if (!encryptedAthleteId) {
-alert("Athlete ID is missing! Please log in again.");
-window.location.href = "athlete.html"; // Redirect to athlete page
-return;
+// Enhanced logout function
+function logout() {
+    // Clear all storage
+    localStorage.clear();
+    sessionStorage.clear();
+
+    // Clear the interval if it exists
+    if (sessionCheckInterval) {
+        clearInterval(sessionCheckInterval);
+    }
+
+    // Redirect to login page
+    window.location.href = 'index.html';
 }
 
-try {
-athleteId = decodeURIComponent(escape(atob(encryptedAthleteId)));
-console.log("Decrypted Athlete ID:", athleteId); // Log the decrypted athleteId
-} catch (error) {
-console.error("Failed to decrypt athleteId:", error);
-alert("Invalid athlete ID! Please log in again.");
-window.location.href = "athlete.html";
-return;
+// Function to check session validity
+function checkSession() {
+    const username = localStorage.getItem("username");
+    if (!username) {
+        console.log("Session invalid: Username not found");
+        logout();
+    }
 }
+    document.addEventListener('DOMContentLoaded', () => {
+        // Retrieve and decrypt athleteId from localStorage
+        const athleteIdFromStorage = localStorage.getItem("athleteId");
+        if (!athleteIdFromStorage) {
+            alert("Athlete ID is missing! Please log in again.");
+            window.location.href = "athlete.html"; // Redirect to athlete page
+            return;
+        }
 
-// Use athleteId in your scripts
-console.log("Athlete ID for event registration:", athleteId);
-// Proceed with your logic using athleteId (e.g., fetch events)
-});
-// Replace with the current logged-in athlete's ID
+        try {
+            athleteId = athleteIdFromStorage;
+            console.log("Decrypted Athlete ID:", athleteId); // Log the athleteId
+        } catch (error) {
+            console.error("Failed to decrypt athleteId:", error);
+            alert("Invalid athlete ID! Please log in again.");
+            window.location.href = "athlete.html";
+            return;
+        }
 
-// Fetch all events from the backend
-async function fetchEvents() {
+        // Fetch events as soon as the athleteId is set
+        fetchEvents();
+    });
+
+    // Fetch all events from the backend
+    async function fetchEvents() {
     const eventCardsContainer = document.querySelector('.event-cards-container');
     const apiUrl = 'http://localhost:8080/api/events/list'; // Backend endpoint to get events
 
@@ -422,34 +439,49 @@ async function fetchEvents() {
         if (response.ok) {
             const events = await response.json();
 
-            // Fetch status for each event and generate cards
-            const eventCards = await Promise.all(
-                events.map(async (event) => {
-                    const status = await fetchEventStatus(event.eventId);
-                    const statusClass = getStatusClass(status);
-                    return `
-                        <div class="event-card">
-                          <img src="${event.photoUrl || 'https://images4.alphacoders.com/251/thumb-1920-251764.jpg'}" alt="${event.eventTitle}">
-                            <div class="event-card-content">
-                                <h3 class="event-title">${event.eventTitle}</h3>
-                                <p><strong>Meet Name:</strong> ${event.meetName || 'Not specified'}</p>
-                                <p><strong>Category:</strong> ${event.category || 'Not specified'}</p>
-                                <p><strong>Location:</strong> ${event.eventLocation || 'Online'}</p>
-                                <p><strong>Date:</strong> ${event.eventDate || 'TBD'}</p>
-                                <p><strong>Time:</strong> ${event.eventTime || 'TBD'}</p>
-                                <div class="event-status ${statusClass}">
-                                    Status: ${status || 'Not Registered'}
-                                </div>
-                                <button class="cta-button" onclick="registerEvent(${event.eventId})" ${status === 'Registered' || status === 'Accepted'|| status === 'Declined'? 'disabled' : ''}>
-                                    ${status === 'Registered' || status === 'Accepted'|| status === 'Declined'? 'Already Registered' : 'Register Now'}
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                })
-            );
+            // Get the current date and time
+            const currentDateTime = new Date();
 
-            eventCardsContainer.innerHTML = eventCards.join('');
+            // Filter events with date and time greater than or equal to the current date and time
+            const upcomingEvents = events.filter(event => {
+                if (!event.eventDate || !event.eventTime) return false; // Skip if date or time is missing
+                const eventDateTime = new Date(`${event.eventDate}T${event.eventTime}`);
+                return eventDateTime >= currentDateTime;
+            });
+
+            // Check if there are any upcoming events
+            if (upcomingEvents.length > 0) {
+                // Fetch status for each event and generate cards
+                const eventCards = await Promise.all(
+                    upcomingEvents.map(async (event) => {
+                        const status = await fetchEventStatus(event.eventId);
+                        const statusClass = getStatusClass(status);
+                        return `
+                            <div class="event-card">
+                                <img src="${event.photoUrl || 'https://images4.alphacoders.com/251/thumb-1920-251764.jpg'}" alt="${event.eventTitle}">
+                                <div class="event-card-content">
+                                    <h3 class="event-title">${event.eventTitle}</h3>
+                                    <p><strong>Meet Name:</strong> ${event.meetName || 'Not specified'}</p>
+                                    <p><strong>Category:</strong> ${event.category || 'Not specified'}</p>
+                                    <p><strong>Location:</strong> ${event.eventLocation || 'Online'}</p>
+                                    <p><strong>Date:</strong> ${event.eventDate || 'TBD'}</p>
+                                    <p><strong>Time:</strong> ${event.eventTime || 'TBD'}</p>
+                                    <div class="event-status ${statusClass}">
+                                        Status: ${status || 'Not Registered'}
+                                    </div>
+                                    <button class="cta-button" onclick="registerEvent(${event.eventId})" ${['Registered', 'Accepted', 'Declined'].includes(status) ? 'disabled' : ''}>
+                                        ${['Registered', 'Accepted', 'Declined'].includes(status) ? 'Already Registered' : 'Register Now'}
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    })
+                );
+
+                eventCardsContainer.innerHTML = eventCards.join('');
+            } else {
+                eventCardsContainer.innerHTML = '<p style="text-align: center; color: green;">No upcoming events found.</p>';
+            }
         } else {
             console.error('Failed to fetch events:', response.status);
             eventCardsContainer.innerHTML = '<p style="text-align: center; color: red;">Failed to load events.</p>';
@@ -460,185 +492,175 @@ async function fetchEvents() {
     }
 }
 
-// Fetch the registration status for a specific event
-async function fetchEventStatus(eventId) {
-    const apiUrl = `http://localhost:8080/api/events/${eventId}/athlete/${athleteId}/status`;
 
-    try {
-        const response = await fetch(apiUrl, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+    // Fetch the registration status for a specific event
+    async function fetchEventStatus(eventId) {
+        const apiUrl = `http://localhost:8080/api/events/${eventId}/athlete/${athleteId}/status`;
 
-        if (response.ok) {
-            return await response.text(); // Status could be 'Registered', 'Accepted', 'Declined', or 'Not Registered'
-        } else {
-            console.error(`Failed to fetch status for event ${eventId}:`, response.status);
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (response.ok) {
+                return await response.text(); // Status could be 'Registered', 'Accepted', 'Declined', or 'Not Registered'
+            } else {
+                console.error(`Failed to fetch status for event ${eventId}: `, response.status);
+                return 'Unknown';
+            }
+        } catch (error) {
+            console.error(`Error fetching status for event ${eventId}: `, error);
             return 'Unknown';
         }
-    } catch (error) {
-        console.error(`Error fetching status for event ${eventId}:`, error);
-        return 'Unknown';
     }
-}
 
-// Get class for status
-function getStatusClass(status) {
-    switch (status) {
-        case 'Registered':
-        case 'Accepted':
-            return 'status-registered';
-        case 'Declined':
-            return 'status-declined';
-        default:
-            return 'status-not-registered';
-    }
-}
-
-// Register an athlete for an event
-async function registerEvent(eventId) {
-    const apiUrl = `http://localhost:8080/api/events/${eventId}/athlete/${athleteId}/register`;
-
-    try {
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (response.ok) {
-            const registeredEvent = await response.json();
-            alert(`Successfully registered for the event: ${registeredEvent.eventTitle}`);
-            fetchEvents(); // Refresh events to update status
-        } else {
-            console.error('Failed to register for the event:', response.status);
-            alert('Failed to register for the event. Please try again.');
+    // Get class for status
+    function getStatusClass(status) {
+        switch (status) {
+            case 'Registered':
+            case 'Accepted':
+                return 'status-registered';
+            case 'Declined':
+                return 'status-declined';
+            default:
+                return 'status-not-registered';
         }
-    } catch (error) {
-        console.error('Error registering for the event:', error);
-        alert('An unexpected error occurred while registering for the event.');
     }
-}
 
-// Load events when the page loads
-document.addEventListener('DOMContentLoaded', fetchEvents);
+    // Register an athlete for an event
+    async function registerEvent(eventId) {
+        const apiUrl = `http://localhost:8080/api/events/${eventId}/athlete/${athleteId}/register`;
 
-// Fetch notifications for the athlete
-async function fetchNotifications() {
-try {
-// Ensure athleteid is available
-if (!athleteid) {
-    console.error('Athlete ID not available');
-    return;
-}
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
 
-const response = await fetch(`http://localhost:8080/api/notifications/athlete/${athleteid}`);
-
-if (response.ok) {
-    const notifications = await response.json();
-    const notificationsList = document.getElementById('notifications-list');
-    const notificationDot = document.getElementById('notificationDot');
-
-    // Clear existing notifications
-    notificationsList.innerHTML = '';
-
-    // Check if there are new notifications
-    if (notifications.length > 0) {
-        // Show the dot
-        notificationDot.classList.add('active');
-
-        // Populate notifications
-        notifications.forEach(notification => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <strong>${notification.title}</strong>
-                <p>${notification.message}</p>
-                <small>${new Date(notification.timestamp).toLocaleString()}</small>
-            `;
-            notificationsList.appendChild(li);
-        });
-    } else {
-        // Hide the dot if no new notifications
-        notificationDot.classList.remove('active');
-
-        // Show a message when no notifications
-        notificationsList.innerHTML = `
-            <li class="no-notifications">
-                No new notifications
-            </li>
-        `;
+            if (response.ok) {
+                const registeredEvent = await response.json();
+                alert(`Successfully registered for the event: ${registeredEvent.eventTitle}`);
+                fetchEvents(); // Refresh events to update status
+            } else {
+                console.error('Failed to register for the event:', response.status);
+                alert('Failed to register for the event. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error registering for the event:', error);
+            alert('An unexpected error occurred while registering for the event.');
+        }
     }
-}
-} catch (error) {
-console.error('Error fetching notifications:', error);
-}
-}
-async function checkNotifications() {
-try {
-// Ensure athleteid is available before checking notifications
-if (!athleteid) {
-    console.error('Athlete ID not available');
-    return;
-}
 
-const response = await fetch(`http://localhost:8080/api/notifications/athlete/${athleteid}/unread`);
-if (response.ok) {
-    const unreadCount = await response.json();
-    const notificationDot = document.getElementById('notificationDot');
+    // Fetch notifications for the athlete
+    async function fetchNotifications() {
+        try {
+            // Ensure athleteId is available
+            if (!athleteId) {
+                console.error('Athlete ID not available');
+                return;
+            }
 
-    // Show/hide notification dot based on unread count
-    if (unreadCount > 0) {
-        notificationDot.classList.add('active');
-    } else {
-        notificationDot.classList.remove('active');
+            const response = await fetch(`http://localhost:8080/api/notifications/athlete/${athleteId}`);
+
+            if (response.ok) {
+                const notifications = await response.json();
+                const notificationsList = document.getElementById('notifications-list');
+                const notificationDot = document.getElementById('notificationDot');
+
+                // Clear existing notifications
+                notificationsList.innerHTML = '';
+
+                // Check if there are new notifications
+                if (notifications.length > 0) {
+                    // Show the dot
+                    notificationDot.classList.add('active');
+
+                    // Populate notifications
+                    notifications.forEach(notification => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <strong>${notification.title}</strong>
+                            <p>${notification.message}</p>
+                            <small>${new Date(notification.timestamp).toLocaleString()}</small>
+                        `;
+                        notificationsList.appendChild(li);
+                    });
+                } else {
+                    // Hide the dot if no new notifications
+                    notificationDot.classList.remove('active');
+
+                    // Show a message when no notifications
+                    notificationsList.innerHTML = `
+                        <li class="no-notifications">
+                            No new notifications
+                        </li>
+                    `;
+                }
+            }
+        } catch (error) {
+            console.error('Error fetching notifications:', error);
+        }
     }
-}
-} catch (error) {
-console.error('Error checking notifications:', error);
-}
-}
-// Initialize notifications
-function initializeNotifications() {
-// Initial fetch of notifications
-fetchNotifications();
 
-// Initial check for unread notifications
-checkNotifications();
+    // Initialize notifications
+    function initializeNotifications() {
+        // Initial fetch of notifications
+        fetchNotifications();
 
-// Periodic checks every 5 minutes
-setInterval(fetchNotifications, 5 * 60 * 1000);
-setInterval(checkNotifications, 5 * 60 * 1000);
-}
+        // Initial check for unread notifications
+        checkNotifications();
 
-// Modify the existing authentication success block
-if (checkAuthentication()) {
-// Existing code...
-fetchAthleteId(userId).then(() => {
-// Start notification checking after athlete ID is fetched
-if (athleteid) {
-    checkNotifications();
+        // Periodic checks every 5 minutes
+        setInterval(fetchNotifications, 5 * 60 * 1000);
+        setInterval(checkNotifications, 5 * 60 * 1000);
+    }
 
-    // Optional: Periodically check for notifications
-    setInterval(checkNotifications, 5 * 60 * 1000); // Every 5 minutes
-}
-});
-}
-document.querySelector('.notification-icon a')?.addEventListener('click', async (e) => {
-try {
-// Optionally mark all notifications as read when clicked
-await fetch(`http://localhost:8080/api/notifications/athlete/${athleteid}/markAsRead`, {
-    method: 'POST'
-});
+    // Check for unread notifications
+    async function checkNotifications() {
+        try {
+            // Ensure athleteId is available before checking notifications
+            if (!athleteId) {
+                console.error('Athlete ID not available');
+                return;
+            }
 
-// Remove the active dot
-document.getElementById('notificationDot').classList.remove('active');
-} catch (error) {
-console.error('Error marking notifications as read:', error);
-}
-});
+            const response = await fetch(`http://localhost:8080/api/notifications/athlete/${athleteId}/unread`);
+            if (response.ok) {
+                const unreadCount = await response.json();
+                const notificationDot = document.getElementById('notificationDot');
+
+                // Show/hide notification dot based on unread count
+                if (unreadCount > 0) {
+                    notificationDot.classList.add('active');
+                } else {
+                    notificationDot.classList.remove('active');
+                }
+            }
+        } catch (error) {
+            console.error('Error checking notifications:', error);
+        }
+    }
+
+    // Mark all notifications as read when clicked
+    document.querySelector('.notification-icon a')?.addEventListener('click', async (e) => {
+        try {
+            // Optionally mark all notifications as read when clicked
+            await fetch(`http://localhost:8080/api/notifications/athlete/${athleteId}/markAsRead`, {
+                method: 'POST'
+            });
+
+            // Remove the active dot
+            document.getElementById('notificationDot').classList.remove('active');
+        } catch (error) {
+            console.error('Error marking notifications as read:', error);
+        }
+    });
+
 </script>
 
 </body>

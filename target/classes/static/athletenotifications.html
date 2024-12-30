@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Notifications</title>
+    <title> Athlete Notifications</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
     --primary-color: #0077be;
-    --secondary-color: #00a86b;
+    --secondary-color: #ffa500;
     --background-dark: #121212;
     --text-light: #f4f4f4;
-    --gradient-primary: linear-gradient(135deg, #0077be 0%, #00a86b 100%);
+    --gradient-primary: linear-gradient(135deg, #eaecdb 0%, #fdd007 100%);
 }
 
 * {
@@ -42,12 +42,12 @@ body {
     z-index: 1000;
     transition: background-color 0.3s ease;
     backdrop-filter: blur(10px);
-    border-bottom: 10px solid white; /* Adjust the color and width as needed */
+    
 
 }
 
 .logo {
-    color: var(--text-light);
+    color:#ffa500;
     font-size: 1.8rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -131,7 +131,7 @@ body {
     position: absolute;
     background-color: rgba(30, 30, 30, 0.9);
     min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px #ffa500;(0,0,0,0.2);
     z-index: 1;
     top: 100%;
     left: 0;
@@ -175,7 +175,7 @@ body {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
-    color: var(--primary-color);
+    color: #ffa500;
 }
 
 #notifications-list {
@@ -200,65 +200,125 @@ body {
 #notifications-list li:last-child {
     border-bottom: none;
 }
+        .notification-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.notification-link {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    text-decoration: none;
+    position: relative;
+}
+
+.notification-dot {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: block;
+    border: 2px solid rgba(18, 18, 18, 0.9);
+}
+
+.notification-dot.active {
+    display: block;
+}
+
+.notification-icon i {
+    font-size: 1.1rem; /* Increased from previous size */
+    color: var(--text-light);
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+    margin-right: 5px;
+}
+
+.notification-icon:hover i {
+    color: var(--secondary-color);
+    transform: scale(1.1); /* Added scale effect on hover */
+}
     </style>
 </head>
 <body>
-<!-- Navigation -->
-<!-- Navigation -->
-<header class="navbar">
-    <div class="logo">Athletes</div>
-
-    <ul class="nav-links">
-        <li class="dropdown">
-            <a href="athlete.html">Home</a>
-        </li>
-        <li class="dropdown">
-            <a href="#news">News</a>
-            <div class="dropdown-content">
-                <a href="Allatest-news.html">Latest News</a>
-                <a href="trending.html">Trending</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <a href="athleteeventregistration.html">Events</a>
-            <div class="dropdown-content">
-                <a href="athleteeventregistration.html">Upcoming Events</a>
-                <a href="#">Ongoing Events</a>
-                <a href="Allpast-events.html">Completed Events</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <a href="#athletes">Athletes</a>
-            <div class="dropdown-content">
-                <a href="athleteprofile.html">Athlete Profile</a>
-                <a href="athleterankings.html">Rankings</a>
-                <a href="athleteachivement.html">Achievements</a>
-                <a href="athletenotifications.html">Notifications</a>
-            </div>
-        </li>
-        <li><a href="athletecoaches.html">Coaches</a></li>
-        <li class="notification-icon">
-            <a href="athletenotifications.html" class="notification-link">
-                <i class="fas fa-bell"></i>
-                <span class="notification-dot" id="notificationDot"></span>
-            </a>
-        </li>
-        <li><a href="index.html" id="logoutlink">Logout</a></li>
-    </ul>
-</header>
+    <header class="navbar">
+        <div class="logo" id="userDetails">Athletes</div>
+    
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="athlete.html">Home</a>
+            </li>
+            <li class="dropdown">
+                <a href="#news">News</a>
+                <div class="dropdown-content">
+                    <a href="Allatest-news.html">Latest News</a>
+                    <a href="trending.html">Trending</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#events">Events</a>
+                <div class="dropdown-content">
+                    <a href="athleteeventregistration.html">Upcoming Events</a>
+                    <a href="athleteongoingevents.html">Ongoing Events</a>
+                    <a href="Allpast-events.html">Completed Events</a>
+                </div>
+            </li>
+            <li><a href="athleteresults.html">Results</a></li>
+            <li><a href="athletecoaches.html">Coaches</a></li>
+            <a href="athleteprofile.html">Profile</a>
+            <li class="notification-icon">
+                <a href="athletenotifications.html" class="notification-link">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-dot" id="notificationDot"></span>
+                </a>
+            </li>
+            <li><a href="index.html" id="logoutlink" onclick="logout()">Logout</a></li>
+        </ul>
+    </header>
 <div id="notifications-container">
     <h2>Your Notifications</h2>
     <ul id="notifications-list">
         <!-- Notifications will be dynamically loaded here -->
     </ul>
-</div>
+</div><script src="tokens.js"></script>
+<script src="athleteauth.js"></script>
+
 <script>
     // Base URL for the backend
- const apiUrl = "http://localhost:8080/api";
+const apiUrl = "http://localhost:8080/api";
+let sessionCheckInterval; // Variable to store the interval
 
+// Enhanced logout function
+function logout() {
+    // Clear all storage
+    localStorage.clear();
+    sessionStorage.clear();
+
+    // Clear the interval if it exists
+    if (sessionCheckInterval) {
+        clearInterval(sessionCheckInterval);
+    }
+
+    // Redirect to login page
+    window.location.href = 'index.html';
+}
+
+// Function to check session validity
+function checkSession() {
+    const username = localStorage.getItem("username");
+    if (!username) {
+        console.log("Session invalid: Username not found");
+        logout();
+    }
+}
 async function getAthleteId() {
     try {
         const userId = localStorage.getItem("userId"); // Retrieve user ID from local storage
+        console.log("Stored userId:", userId); // Log the stored userId
 
         if (!userId) {
             console.error("User ID not found in local storage.");
@@ -266,29 +326,22 @@ async function getAthleteId() {
             return null;
         }
 
-        // Decode the base64 userId if it's encoded
-        const decodedUserId = atob(userId); // Decode base64 string
-
-        // Check if decoded userId is valid
-        if (!decodedUserId || isNaN(decodedUserId)) {
-            console.error("Decoded user ID is invalid.");
-            alert("Invalid user ID.");
-            return null;
-        }
-
-        // Make the API request with the decoded userId (as string)
-        const response = await fetch(`${apiUrl}/athletes/getIdByUserId/${decodedUserId}`);
+        // Make the API request with the userId (no decoding needed)
+        const response = await fetch(`${apiUrl}/athletes/getIdByUserId/${userId}`);
         if (!response.ok) {
             console.error("Failed to fetch athlete ID:", await response.text());
+            alert("Failed to retrieve athlete ID from the server.");
             return null;
         }
 
         return await response.json(); // Returns athlete ID
     } catch (error) {
         console.error("Error fetching athlete ID:", error);
+        alert("An error occurred while retrieving the athlete ID.");
         return null;
     }
 }
+
 // Function to fetch notifications for the athlete
 async function fetchNotifications() {
     try {
@@ -328,7 +381,7 @@ function extractEventId(message) {
     return match ? parseInt(match[1], 10) : null; // Return the extracted eventId as an integer
 }
 
-
+// Function to display notifications with event details
 async function displayNotifications(notifications) {
     const notificationsList = document.getElementById("notifications-list");
     notificationsList.innerHTML = ""; // Clear existing notifications
@@ -442,70 +495,34 @@ async function displayNotifications(notifications) {
             const tr = document.createElement("tr");
             const td1 = document.createElement("td");
             const td2 = document.createElement("td");
-
-            td1.style.padding = "12px";
-            td1.style.fontWeight = "bold";
-            td1.style.border = "1px solid #ddd"; // Border for rows and columns
-            td2.style.padding = "12px";
-            td2.style.border = "1px solid #ddd"; // Border for rows and columns
-
-            td1.innerHTML = `<strong>${row.label}</strong>`;
-            td2.innerHTML = row.value;
-
+            td1.innerText = row.label;
+            td2.innerText = row.value;
+            td1.style.padding = "10px";
+            td1.style.borderBottom = "1px solid #ddd"; // Light border for rows
+            td2.style.padding = "10px";
+            td2.style.borderBottom = "1px solid #ddd"; // Light border for rows
             tr.appendChild(td1);
             tr.appendChild(td2);
             table.appendChild(tr);
         });
 
-        // Create a close button for the table
-        const closeButton = document.createElement("button");
-        closeButton.innerHTML = "&times;"; // Close symbol
-        closeButton.style.position = "absolute";
-        closeButton.style.top = "10px";
-        closeButton.style.right = "10px";
-        closeButton.style.fontSize = "24px";
-        closeButton.style.background = "transparent";
-        closeButton.style.border = "none";
-        closeButton.style.color = "#fff";
-        closeButton.style.cursor = "pointer";
-
-        closeButton.addEventListener("click", () => {
-            table.style.display = "none"; // Hide table when close button is clicked
-            viewMoreButton.style.display = "block"; // Show "View More" button again
-            listItem.style.backgroundColor = "rgba(50, 50, 50, 0.85)"; // Reset the background color
-        });
-
-        // Event listener for the view more button to show details
-        viewMoreButton.addEventListener("click", () => {
-            // Hide the "View More" button
-            viewMoreButton.style.display = "none";
-            // Show the table and change the notification background
-            table.style.display = "block";
-            listItem.style.backgroundColor = "rgba(70, 70, 70, 0.85)"; // Change background to indicate expanded
-            listItem.appendChild(closeButton); // Add close button
-        });
-
-        // Append message, button, and table to the list item
+        // Append the event table and message container
         listItem.appendChild(messageContainer);
         listItem.appendChild(viewMoreButton);
         listItem.appendChild(table);
 
-        // Add the notification to the list
-        notificationsList.insertBefore(listItem, notificationsList.firstChild);
-
-        // Close table if user clicks anywhere outside
-        document.addEventListener("click", (e) => {
-            if (!listItem.contains(e.target)) {
-                table.style.display = "none"; // Hide table if clicked outside
-                viewMoreButton.style.display = "block"; // Show "View More" button again
-                listItem.style.backgroundColor = "rgba(50, 50, 50, 0.85)"; // Reset background color
-            }
+        // Toggle event details visibility when "View More" is clicked
+        viewMoreButton.addEventListener("click", () => {
+            table.style.display = table.style.display === "none" ? "table" : "none";
         });
+
+        // Append the notification item to the list
+        notificationsList.appendChild(listItem);
     });
 }
 
- // Call fetchNotifications when the page loads
- document.addEventListener("DOMContentLoaded", fetchNotifications);
+// Call fetchNotifications when the page loads
+document.addEventListener("DOMContentLoaded", fetchNotifications);
 
 </script>
 </body>
