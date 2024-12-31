@@ -29,6 +29,7 @@ public class CoachController {
     public ResponseEntity<Coach> getCoachById(@PathVariable Integer id) {
         return coachService.getCoachById(id);
     }
+
     @GetMapping("/byUserId/{userId}")
     public ResponseEntity<Coach> getCoachByUserId(@PathVariable Integer userId) {
         return coachService.getCoachByUserId(userId);

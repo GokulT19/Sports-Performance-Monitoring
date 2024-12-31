@@ -5,6 +5,7 @@ import com.auth.Authentication.entity.Coach;
 import com.auth.Authentication.entity.User;
 import com.auth.Authentication.Repository.AthleteRepository;
 import com.auth.Authentication.Repository.CoachRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.Optional;
 @Service
 public class AthleteService {
 
+    @Autowired
     private final AthleteRepository athleteRepository;
     private final CoachRepository coachRepository;
 
@@ -23,6 +25,7 @@ public class AthleteService {
         this.athleteRepository = athleteRepository;
         this.coachRepository = coachRepository;
     }
+
     public Integer getAthleteIdByUserId(Integer userId) {
         // Find the athlete by userId
         Athlete athlete = athleteRepository.findByUserId(userId);
@@ -159,4 +162,18 @@ public class AthleteService {
         }
         return ResponseEntity.notFound().build();
     }
+
+    public Athlete updateAthleteProfilePicture(Integer athleteId, String photoUrl) {
+        Athlete athlete = athleteRepository.findById(athleteId).orElse(null);
+        if (athlete != null) {
+            athlete.setPhotoUrl(photoUrl);
+            return athleteRepository.save(athlete);
+        }
+        return null;
+    }
+
+    public List<Athlete> findAthletesByIds(List<Integer> athleteIds) {
+        return athleteRepository.findAllById(athleteIds);
+    }
+
 }

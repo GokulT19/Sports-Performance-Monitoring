@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coaches</title>
+    <title>Request and message coaches</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
          :root {
              --primary-color: #0077be;
-             --secondary-color: #00a86b;
+             --secondary-color: #ffa500;
              --background-dark: #121212;
              --text-light: #f4f4f4;
-             --gradient-primary: linear-gradient(135deg, #0077be 0%, #00a86b 100%);
+             --gradient-primary: linear-gradient(135deg, #eaecdb 0%, #fdd007 100%);
          }
 
          * {
@@ -31,7 +31,7 @@
              overflow-x: hidden;
          }
          .navbar {
-             background-color: rgba(18, 18, 18, 0.9);
+             background-color: #121212;
              padding: 1rem 2rem;
              display: flex;
              justify-content: space-between;
@@ -42,12 +42,11 @@
              z-index: 1000;
              transition: background-color 0.3s ease;
              backdrop-filter: blur(10px);
-             border-bottom: 10px solid white; /* Adjust the color and width as needed */
-
+             
          }
 
          .logo {
-             color: var(--text-light);
+            color:#ffa500;
              font-size: 1.8rem;
              font-weight: bold;
              text-transform: uppercase;
@@ -131,7 +130,7 @@
              position: absolute;
              background-color: rgba(30, 30, 30, 0.9);
              min-width: 200px;
-             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+             box-shadow: 0 8px 16px #ffa500;(0,0,0,0.2);
              z-index: 1;
              top: 100%;
              left: 0;
@@ -162,153 +161,302 @@
            margin: 50px;
            padding: 50px;
            text-align: center;
+           margin-top:100px;
          }
 
          h1 {
            margin-bottom: 20px;
+           color: #ffa500;
          }
              h2 {
            text-align: centre;
          }
-
-         /* Card Container */
-         .card-container {
-           display: flex;
-           flex-wrap: wrap;
-           gap: 20px;
-           justify-content: center;
-         }
-
-         /* Card */
-         .card {
-           background-color: #222;
-           border: 1px solid #444;
-           border-radius: 8px;
-           padding: 16px;
-           text-align: center;
-           cursor: pointer;
-           width: 300px;
-           height: 250px;
-           color: #fff;
-           transition: transform 0.3s, box-shadow 0.3s;
-         }
-
-         .card:hover {
-           transform: scale(1.05);
-           box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-         }
-
-         .card img {
-           width: 100%;
-           border-radius: 50%;
-         }
-
-         /* Details Section */
-.details {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  padding: 16px;
-  background-color: #222;
-  border: 1px solid #444;
-  border-radius: 8px;
+       /* General Container Styling */
+#coach-container {  
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 16px;
+    width: 85%;
+    max-width: 1200px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    margin: 40px auto;
+    margin-top: 120px;
 }
 
-.details-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 16px;
-  position: relative;
+h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 30px;
+    color: #ff9800;
+    font-family: 'Arial', sans-serif;
 }
 
-         .hidden {
-           display: none;
-         }
-.details-title {
-  text-align: center;
+/* Coaches List */
+#coach-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
 }
 
-.close-button {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  right: 0;
+.coach-card {
+    background: linear-gradient(145deg, #292929, #1a1a1a);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    width: 260px;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-.details-content {
-  text-align: center;
+.coach-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
-         /* Button Styles */
-         .button {
-           margin-top: 10px;
-           padding: 10px 20px;
-           background-color: #007bff;
-           color: #fff;
-           border: none;
-           border-radius: 4px;
-           cursor: pointer;
-           font-size: 14px;
-           transition: background-color 0.3s ease;
-         }
 
-         .button:hover {
-           background-color: #0056b3;
-         }
-               /* New notification styles */
-  .notification-icon {
-        position: relative;
-        display: flex;
-        align-items: center;
-        margin-left: 10px;
-    }
+.coach-card h3 {
+    font-size: 24px;
+    color: #ff9800;
+    margin-bottom: 10px;
+}
 
-    .notification-link {
-        display: flex;
-        align-items: center;
-        color: var(--text-light);
-        text-decoration: none;
-        position: relative;
-    }
+.coach-card p {
+    font-size: 15px;
+    color: #d4d4d4;
+    margin-bottom: 15px;
+}
 
-    .notification-dot {
-        position: absolute;
-        top: -3px;
-        right: -3px;
-        width: 10px;
-        height: 10px;
-        background-color: red;
-        border-radius: 50%;
-        display: block;
-        border: 2px solid rgba(18, 18, 18, 0.9);
-    }
+.coach-card button {
+    padding: 12px 24px;
+    background: #28a745;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-    .notification-dot.active {
-        display: block;
-    }
+.coach-card button:hover {
+    background: #218838;
+}
 
-    .notification-icon i {
-        font-size: 1.5rem;
-        color: var(--text-light);
-        transition: color 0.3s ease;
-        margin-right: 5px;
-    }
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
 
-    .notification-icon:hover i {
-        color: var(--secondary-color);
-        transform: scale(1.1);
-    }
+.popup-content {
+    background: #2c2c2c;
+    padding: 30px;
+    border-radius: 16px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+    position: relative;
+}
+
+.popup-content .close {
+    font-size: 30px;
+    color: #ff9800;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.popup-content .close:hover {
+    color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    margin: 15px 0;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #ff9800;
+    box-shadow: 0 0 5px rgba(255, 152, 0, 0.6);
+}
+
+button[type="submit"], .secondary-btn {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"] {
+    background: #007bff;
+    color: #fff;
+}
+
+button[type="submit"]:hover {
+    background: #0056b3;
+}
+
+.secondary-btn {
+    background: #444;
+    color: #e0e0e0;
+    margin-top: 10px;
+}
+
+.secondary-btn:hover {
+    background: #555;
+}
+
+/* Notifications List */
+#notifications-list, #replied-list {
+    margin: 30px auto;
+    width: 85%;
+    max-width: 1200px;
+}
+
+.notification-card {
+    background: #333;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-size: 16px;
+    max-width: 6%;
+    align-items: center;
+}
+hr {
+    width: 100%; /* Adjust the width as desired */
+    margin: 20px auto; /* Center the line with auto margins */
+    border: none; /* Remove default border style */
+    border-top: 2px solid #ff9800;
+    align-items: flex-start; /* Add a custom color and thickness */
+}
+.coach-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .coach-card h4 {
+            margin: 0 0 10px;
+        }
+
+        .coach-card p {
+            margin: 5px 0;
+        }
+
+        .coach-card button {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .coach-card button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: black;
+            padding: 20px;
+            border-radius: 5px;
+            width: 400px;
+            color: white;
+        }
+
+        .popup textarea {
+            width: 100%;
+            height: 100px;
+            color: white;
+        }
+
+        .popup button {
+            margin-top: 10px;
+        }
+        .messages-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.messages-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.message-item {
+    background-color: black;
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color:white;
+    text-align: left;
+}
+
+.message-item strong {
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.message-item em {
+    color: white;
+}
+
     </style>
 </head>
 <body>
 <!-- Navigation -->
 <header class="navbar">
-    <div class="logo">Athletes</div>
+    <div class="logo" id="userDetails">Athletes</div>
 
     <ul class="nav-links">
         <li class="dropdown">
@@ -322,297 +470,334 @@
             </div>
         </li>
         <li class="dropdown">
-            <a href="athleteeventregistration.html">Events</a>
+            <a href="#events">Events</a>
             <div class="dropdown-content">
                 <a href="athleteeventregistration.html">Upcoming Events</a>
-                <a href="#">Ongoing Events</a>
+                <a href="athleteongoingevents.html">Ongoing Events</a>
                 <a href="Allpast-events.html">Completed Events</a>
             </div>
         </li>
-        <li class="dropdown">
-            <a href="#athletes">Athletes</a>
-            <div class="dropdown-content">
-                <a href="athleteprofile.html">Athlete Profile</a>
-                <a href="athleterankings.html">Rankings</a>
-                <a href="athleteachivement.html">Achievements</a>
-                <a href="athletenotifications.html">Notifications</a>
-            </div>
-        </li>
+        <li><a href="athleteresults.html">Results</a></li>
         <li><a href="athletecoaches.html">Coaches</a></li>
+        <a href="athleteprofile.html">Profile</a>
         <li class="notification-icon">
             <a href="athletenotifications.html" class="notification-link">
                 <i class="fas fa-bell"></i>
                 <span class="notification-dot" id="notificationDot"></span>
             </a>
         </li>
-        <li><a href="index.html" id="logoutlink">Logout</a></li>
+        <li><a href="index.html" id="logoutlink" onclick="logout()">Logout</a></li>
     </ul>
 </header>
 <div class="container">
-    <h1>Coaches</h1>
-    <div id="card-container" class="card-container"></div>
-    <div id="details" class="details hidden">
-        <div class="details-header">
-            <h2 class="details-title">Coach Details</h2>
-            <button class="close-button" onclick="closeDetails()">×</button>
-        </div>
-        <div class="details-content">
-            <p><strong>Username:</strong> <span id="detail-username"></span></p>
-            <p><strong>Full Name:</strong> <span id="detail-name"></span></p>
-            <p><strong>Birth Date:</strong> <span id="detail-birthdate"></span></p>
-            <p><strong>Gender:</strong> <span id="detail-gender"></span></p>
-            <p><strong>Category:</strong> <span id="detail-category"></span></p>
+<h2>Coaches List</h2>
+    <div id="coach-list"></div>
+
+    <!-- Popup for sending notification -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h3>Send Notification</h3>
+            <p id="remarks"></p>
+            <textarea id="notification-message" placeholder="Type a small notify here..."></textarea>
+            <button id="send-notify-btn">Send Notification</button>
+            <button id="close-popup-btn">Close</button>
         </div>
     </div>
+
+    <div id="messagesContainer" class="messages-container">
+        <h2>Recent notify</h2>
+        <ul id="messagesList" class="messages-list"></ul>
+    </div>
+    
+
 </div>
+
+
+</body>
+</html>
+<script src="tokens.js"></script>
+<script src="athleteauth.js"></script>
+
 <script>
-    // Show Coach Details
-    function showDetails(coach) {
-      const details = document.getElementById('details');
-      document.getElementById('detail-username').textContent = coach.username;
-      document.getElementById('detail-name').textContent = ${coach.firstName} ${coach.lastName};
-      document.getElementById('detail-birthdate').textContent = coach.birthDate;
-      document.getElementById('detail-gender').textContent = coach.gender;
-      document.getElementById('detail-category').textContent = coach.category;
-      details.classList.remove('hidden');
+    let sessionCheckInterval; // Variable to store the interval
 
-      // Add click event listener to the document
-      document.addEventListener('click', handleClickOutside);
+// Enhanced logout function
+function logout() {
+    // Clear all storage
+    localStorage.clear();
+    sessionStorage.clear();
+
+    // Clear the interval if it exists
+    if (sessionCheckInterval) {
+        clearInterval(sessionCheckInterval);
     }
 
-    // Close Coach Details
-    function closeDetails() {
-      const details = document.getElementById('details');
-      details.classList.add('hidden');
+    // Redirect to login page
+    window.location.href = 'index.html';
+}
+// Select popup and buttons
+const popup = document.getElementById("popup");
+const closePopupBtn = document.getElementById("close-popup-btn");
 
-      // Remove the click event listener
-      document.removeEventListener('click', handleClickOutside);
-    }
-
-    // Handle click outside of the details section
-    function handleClickOutside(event) {
-      const details = document.getElementById('details');
-      if (!details.contains(event.target)) {
-        closeDetails();
-      }
-    }
-
-    // Add click event listener to the background
-    document.addEventListener('click', function(event) {
-      if (event.target === document.body) {
-        closeDetails();
-      }
-    });
-    // only on cross means
-/* function showDetails(coach) {
-  const details = document.getElementById('details');
-  document.getElementById('detail-username').textContent = coach.username;
-  document.getElementById('detail-name').textContent = ${coach.firstName} ${coach.lastName};
-  document.getElementById('detail-birthdate').textContent = coach.birthDate;
-  document.getElementById('detail-gender').textContent = coach.gender;
-  document.getElementById('detail-category').textContent = coach.category;
-  details.classList.remove('hidden');
+// Function to show the popup
+function showPopup() {
+    popup.style.display = "flex"; // Show popup with flexbox centering
 }
 
-// Close Coach Details
-function closeDetails() {
-  const details = document.getElementById('details');
-  details.classList.add('hidden');
-} */
-            // Backend API URLs
-             const API_URL = '/api/coaches'; // Replace with your backend endpoint
-             const NOTIFY_URL = '/api/notify'; // Endpoint to notify coach
+// Function to close the popup
+function closePopup() {
+    popup.style.display = "none";
+}
 
-             // Simulated Athlete ID (replace with actual user authentication logic)
-             const ATHLETE_ID = 123; // Example athlete ID
+// Add event listener to the close button
+closePopupBtn.addEventListener("click", closePopup);
 
-             // Fetch and Display Coaches
-             async function fetchAndDisplayCoaches() {
-               try {
-                 const response = await fetch(API_URL); // Fetch data from backend
-                 if (!response.ok) {
-                   throw new Error('Failed to fetch coaches');
-                 }
-                 const coaches = await response.json(); // Parse JSON response
-                 renderCoaches(coaches);
-               } catch (error) {
-                 console.error('Error:', error);
-               }
-             }
+// Example usage (you can trigger `showPopup()` when needed)
+document.getElementById("send-notify-btn").addEventListener("click", () => {
+    alert("Notification sent!");
+    closePopup(); // Close popup after sending notification
+});
 
-             // Render Coach Cards
-             function renderCoaches(coaches) {
-               const cardContainer = document.getElementById('card-container');
-               cardContainer.innerHTML = ''; // Clear previous content if any
+// Function to check session validity
+function checkSession() {
+    const username = localStorage.getItem("username");
+    if (!username) {
+        console.log("Session invalid: Username not found");
+        logout();
+    }
+}const BASE_URL = "http://localhost:8080/api/coaches"; 
+const ASSISTANCE_API_URL = "http://localhost:8080/api/assistance-requests";
+const NOTIFICATIONS_API_URL = "http://localhost:8080/api/coach_notifications";
 
-               coaches.forEach((coach) => {
-                 const card = document.createElement('div');
-                 card.classList.add('card');
-                 card.innerHTML = `
-                   <img src="${coach.photoUrl}" alt="${coach.firstName} ${coach.lastName}">
-                   <h3>${coach.firstName} ${coach.lastName}</h3>
-                   <p>${coach.category}</p>
-                   <button class="button" onclick="requestAssistance(${coach.coachId})">Request Assistance</button>
-                 `;
-                 card.addEventListener('click', () => showDetails(coach));
-                 cardContainer.appendChild(card);
-               });
-             }
+// Function to load all coaches
+function loadCoaches() {
+    const coachListContainer = document.getElementById("coach-list");
+    coachListContainer.innerHTML = "";
 
-             // Show Coach Details
-             function showDetails(coach) {
-               const details = document.getElementById('details');
-               document.getElementById('detail-username').textContent = coach.username;
-               document.getElementById('detail-name').textContent = ${coach.firstName} ${coach.lastName};
-               document.getElementById('detail-birthdate').textContent = coach.birthDate;
-               document.getElementById('detail-gender').textContent = coach.gender;
-               document.getElementById('detail-category').textContent = coach.category;
-               details.classList.remove('hidden');
-             }
+    const athleteId = localStorage.getItem("athleteId");
 
-             // Request Assistance
-             async function requestAssistance(coachId) {
-               const payload = {
-                 athleteId: ATHLETE_ID,
-                 coachId: coachId,
-                 message: 'Athlete requests assistance',
-               };
+    fetch(BASE_URL)
+        .then((response) => response.json())
+        .then((coaches) => {
+            coaches.forEach((coach) => {
+                const coachCard = document.createElement("div");
+                coachCard.classList.add("coach-card");
 
-               try {
-                 const response = await fetch(NOTIFY_URL, {
-                   method: 'POST',
-                   headers: {
-                     'Content-Type': 'application/json',
-                   },
-                   body: JSON.stringify(payload),
-                 });
+                fetch(`${ASSISTANCE_API_URL}/exists?athleteId=${athleteId}&coachId=${coach.coachId}`)
+                    .then((response) => response.json())
+                    .then((exists) => {
+                        let actionButton;
 
-                 if (!response.ok) {
-                   throw new Error('Failed to send notification');
-                 }
+                        if (exists) {
+                            fetch(`${ASSISTANCE_API_URL}/status?athleteId=${athleteId}&coachId=${coach.coachId}`)
+                                .then((response) => response.text())
+                                .then((status) => {
+                                    if (status === "ACCEPTED") {
+                                        actionButton = `<button id="popup-btn-${coach.coachId}" onclick="openPopup(${coach.coachId})">View Remarks</button>`;
+                                    } else {
+                                        actionButton = `<button id="check-status-btn-${coach.coachId}" onclick="checkStatus(${coach.coachId})">Check Status</button>`;
+                                    }
 
-                 alert('Notification sent to the coach!');
-               } catch (error) {
-                 console.error('Error sending notification:', error);
-                 alert('Failed to send notification.');
-               }
-             }
+                                    coachCard.innerHTML = `
+                                        <h4>${coach.firstName} ${coach.lastName}</h4>
+                                        <p>Category: ${coach.category}</p>
+                                        ${actionButton}
+                                    `;
+                                    coachListContainer.appendChild(coachCard);
+                                });
+                        } else {
+                            actionButton = `<button id="request-btn-${coach.coachId}" onclick="handleRequest(${coach.coachId})">Request</button>`;
+                            coachCard.innerHTML = `
+                                <h4>${coach.firstName} ${coach.lastName}</h4>
+                                <p>Category: ${coach.category}</p>
+                                ${actionButton}
+                            `;
+                            coachListContainer.appendChild(coachCard);
+                        }
+                    })
+                    .catch((error) => console.error("Error checking request status:", error));
+            });
+        })
+        .catch((error) => console.error("Error loading coaches:", error));
+}
 
-             // Initialize App
-             fetchAndDisplayCoaches();
-// Fetch notifications for the athlete
-async function fetchNotifications() {
-    try {
-        // Ensure athleteid is available
-        if (!athleteid) {
-            console.error('Athlete ID not available');
-            return;
-        }
+// Function to check the status of a request
+function checkStatus(coachId) {
+    const athleteId = localStorage.getItem("athleteId");
 
-        const response = await fetch(`http://localhost:8080/api/notifications/athlete/${athleteid}`);
+    fetch(`${ASSISTANCE_API_URL}/status?athleteId=${athleteId}&coachId=${coachId}`)
+        .then((response) => response.text())
+        .then((status) => {
+            alert(`The status of your request is: ${status}`);
+        })
+        .catch((error) => console.error("Error checking status:", error));
+}
 
-        if (response.ok) {
-            const notifications = await response.json();
-            const notificationsList = document.getElementById('notifications-list');
-            const notificationDot = document.getElementById('notificationDot');
+// Function to handle a request
+function handleRequest(coachId, newMessage) {
+    const athleteId = localStorage.getItem("athleteId");
 
-            // Clear existing notifications
-            notificationsList.innerHTML = '';
+    // Sending the notification request to the API
+    fetch(`${ASSISTANCE_API_URL}/create?athleteId=${athleteId}&coachId=${coachId}`, { method: "POST" })
+        .then((response) => response.json())
+        .then(() => {
+            alert("Request has been sent.");
+           
+        })
+        .catch((error) => console.error("Error creating assistance request:", error));
+};
 
-            // Check if there are new notifications
-            if (notifications.length > 0) {
-                // Show the dot
-                notificationDot.classList.add('active');
 
-                // Populate notifications
-                notifications.forEach(notification => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `
-                        <strong>${notification.title}</strong>
-                        <p>${notification.message}</p>
-                        <small>${new Date(notification.timestamp).toLocaleString()}</small>
-                    `;
-                    notificationsList.appendChild(li);
-                });
-            } else {
-                // Hide the dot if no new notifications
-                notificationDot.classList.remove('active');
 
-                // Show a message when no notifications
-                notificationsList.innerHTML = `
-                    <li class="no-notifications">
-                        No new notifications
-                    </li>
-                `;
+// Function to open the popup and display remarks and send notification
+function openPopup(coachId) {
+    const athleteId = localStorage.getItem("athleteId");
+
+    if (!athleteId) {
+        console.error("Athlete ID is missing in localStorage.");
+        alert("Unable to retrieve athlete ID.");
+        return;
+    }
+
+    // Fetch the remarks and notifications
+    fetch(`${NOTIFICATIONS_API_URL}/athlete/${athleteId}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Failed to fetch notifications.");
             }
-        }
-    } catch (error) {
-        console.error('Error fetching notifications:', error);
-    }
-}
-async function checkNotifications() {
-    try {
-        // Ensure athleteid is available before checking notifications
-        if (!athleteid) {
-            console.error('Athlete ID not available');
-            return;
-        }
+            return response.json();
+        })
+        .then((notifications) => {
+            const notification = notifications.find(n => n.coachId === coachId);
 
-        const response = await fetch(`http://localhost:8080/api/notifications/athlete/${athleteid}/unread`);
-        if (response.ok) {
-            const unreadCount = await response.json();
-            const notificationDot = document.getElementById('notificationDot');
-
-            // Show/hide notification dot based on unread count
-            if (unreadCount > 0) {
-                notificationDot.classList.add('active');
-            } else {
-                notificationDot.classList.remove('active');
+            const remarksElement = document.getElementById("remarks");
+            if (remarksElement) {
+                remarksElement.innerText = `Coach's Remarks: ${notification.coachReply || "No remarks available"}`;
+            } 
+            // Show popup
+            const popupElement = document.getElementById("popup");
+            if (popupElement) {
+                popupElement.style.display = "flex";
             }
-        }
-    } catch (error) {
-        console.error('Error checking notifications:', error);
+
+            const sendNotifyBtn = document.getElementById("send-notify-btn");
+            if (sendNotifyBtn) {
+                sendNotifyBtn.onclick = () => sendNotification(athleteId, coachId);
+            }
+        })
+        .catch((error) => console.error("Error fetching notifications:", error));
+}
+
+// Function to send notification
+function sendNotification(athleteId, coachId) {
+    const messageElement = document.getElementById("notification-message");
+    if (!messageElement) {
+        console.error("Notification message input is missing.");
+        return;
+    }
+
+    const message = messageElement.value;
+
+    if (!message) {
+        alert("Please enter a message.");
+        return;
+    }
+
+    // Construct the URL with query parameters
+    const url = `${NOTIFICATIONS_API_URL}/create?athleteId=${athleteId}&coachId=${coachId}&message=${encodeURIComponent(message)}`;
+
+    fetch(url, {
+        method: "POST",
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Failed to send notification.");
+            }
+            return response.json();
+        })
+        .then((notification) => {
+            alert("Notification sent successfully!");
+            closePopup();
+        })
+        .catch((error) => console.error("Error sending notification:", error));
+}
+
+// Function to close the popup
+function closePopup() {
+    const popupElement = document.getElementById("popup");
+    if (popupElement) {
+        popupElement.style.display = "none";
     }
 }
-// Initialize notifications
-function initializeNotifications() {
-    // Initial fetch of notifications
-    fetchNotifications();
+async function fetchRecentMessages(athleteId) {
+    const url = `${NOTIFICATIONS_API_URL}/athlete/${athleteId}`;
 
-    // Initial check for unread notifications
-    checkNotifications();
-
-    // Periodic checks every 5 minutes
-    setInterval(fetchNotifications, 5 * 60 * 1000);
-    setInterval(checkNotifications, 5 * 60 * 1000);
-}
-
-// Modify the existing authentication success block
-if (checkAuthentication()) {
-    // Existing code...
-    fetchAthleteId(userId).then(() => {
-        // Start notification checking after athlete ID is fetched
-        if (athleteid) {
-            checkNotifications();
-
-            // Optional: Periodically check for notifications
-            setInterval(checkNotifications, 5 * 60 * 1000); // Every 5 minutes
-        }
-    });
-}
-    document.querySelector('.notification-icon a')?.addEventListener('click', async (e) => {
     try {
-        // Optionally mark all notifications as read when clicked
-        await fetch(`http://localhost:8080/api/notifications/athlete/${athleteid}/markAsRead`, {
-            method: 'POST'
-        });
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Failed to fetch messages.");
+        }
 
-        // Remove the active dot
-        document.getElementById('notificationDot').classList.remove('active');
+        const notifications = await response.json();
+
+        // Filter messages with non-empty replies and sort by ID (or timestamp if available)
+        const validNotifications = notifications
+            .filter(notification => notification.coachReply) // Only non-empty replies
+            .slice(-3); // Get the last three messages
+
+        displayMessages(validNotifications);
     } catch (error) {
-        console.error('Error marking notifications as read:', error);
+        console.error("Error fetching messages:", error);
+    }
+}
+
+async function displayMessages(messages) {
+    const messagesList = document.getElementById("messagesList");
+    messagesList.innerHTML = ""; // Clear the list before displaying
+
+    for (const messagess of messages) {
+        const coachName = await fetchCoachName(messagess.coachId);
+
+        const listItem = document.createElement("li");
+        listItem.className = "messagess-item";
+        listItem.innerHTML = `
+            <strong>Coach: ${coachName}</strong><br>
+            <strong>question:</strong> ${messagess.message}
+            <br>
+            <strong>notify:</strong> ${messagess.coachReply}
+        `;
+        messagesList.appendChild(listItem);
+    }
+}
+
+async function fetchCoachName(coachId) {
+    const url = `http://localhost:8080/api/coaches/${coachId}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Failed to fetch coach name.");
+        }
+        const coach = await response.json();
+        return coach.username || "Unknown Coach";
+    } catch (error) {
+        console.error("Error fetching coach name:", error);
+        return "Unknown Coach";
+    }
+}
+
+// Example usage (replace with actual athleteId)
+document.addEventListener("DOMContentLoaded", () => {
+    const athleteId = localStorage.getItem("athleteId");
+    if (athleteId) {
+        fetchRecentMessages(athleteId);
+    } else {
+        console.error("Athlete ID not found.");
     }
 });
+
+// Initialize coaches on page load
+window.onload = loadCoaches;
+
 </script>
 </body>
 </html>

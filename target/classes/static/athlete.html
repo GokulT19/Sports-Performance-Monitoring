@@ -1,197 +1,21 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <title>Athlete Portal</title>-->
-<!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">-->
-<!--    <style>-->
-<!--        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');-->
 
-<!--        :root {-->
-<!--            &#45;&#45;primary-color: #0077be;-->
-<!--            &#45;&#45;secondary-color: #00a86b;-->
-<!--            &#45;&#45;background-dark: #121212;-->
-<!--            &#45;&#45;text-light: #f4f4f4;-->
-<!--            &#45;&#45;gradient-primary: linear-gradient(135deg, #0077be 0%, #00a86b 100%);-->
-<!--            &#45;&#45;card-background: rgba(255, 255, 255, 0.08);-->
-<!--        }-->
-
-<!--        * {-->
-<!--            margin: 0;-->
-<!--            padding: 0;-->
-<!--            box-sizing: border-box;-->
-<!--            font-family: 'Poppins', sans-serif;-->
-<!--        }-->
-
-<!--        body {-->
-<!--            background: rgb(16,16,18);-->
-<!--            background: linear-gradient(108deg, rgba(16,16,18,1) 0%, rgba(1,28,55,1) 100%);-->
-<!--            color: var(&#45;&#45;text-light);-->
-<!--            line-height: 1.6;-->
-<!--            overflow-x: hidden;-->
-<!--        }-->
-
-<!--        .navbar {-->
-<!--            background-color: rgba(18, 18, 18, 0.9);-->
-<!--            padding: 1rem 2rem;-->
-<!--            display: flex;-->
-<!--            justify-content: space-between;-->
-<!--            align-items: center;-->
-<!--            position: fixed;-->
-<!--            top: 0;-->
-<!--            width: 100%;-->
-<!--            z-index: 1000;-->
-<!--            border-bottom: 1px solid var(&#45;&#45;card-background);-->
-<!--            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);-->
-<!--        }-->
-
-<!--        .logo {-->
-<!--            color: var(&#45;&#45;text-light);-->
-<!--            font-size: 1.8rem;-->
-<!--            font-weight: bold;-->
-<!--            text-transform: uppercase;-->
-<!--            letter-spacing: 2px;-->
-<!--        }-->
-
-<!--        .nav-links {-->
-<!--            display: flex;-->
-<!--            list-style: none;-->
-<!--            gap: 20px;-->
-<!--        }-->
-
-<!--        .nav-links a {-->
-<!--            color: var(&#45;&#45;text-light);-->
-<!--            text-decoration: none;-->
-<!--            font-weight: 500;-->
-<!--            transition: all 0.3s ease;-->
-<!--            padding: 10px 15px;-->
-<!--            border-radius: 5px;-->
-<!--        }-->
-
-<!--        .nav-links a:hover {-->
-<!--            background: var(&#45;&#45;gradient-primary);-->
-<!--            color: #fff;-->
-<!--        }-->
-
-<!--        .events-container {-->
-<!--            display: grid;-->
-<!--            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));-->
-<!--            gap: 20px;-->
-<!--            padding: 100px 20px 50px;-->
-<!--        }-->
-
-<!--        .event-card {-->
-<!--            background: var(&#45;&#45;card-background);-->
-<!--            backdrop-filter: blur(10px);-->
-<!--            border-radius: 10px;-->
-<!--            padding: 20px;-->
-<!--            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);-->
-<!--            transition: transform 0.3s ease, box-shadow 0.3s ease;-->
-<!--        }-->
-
-<!--        .event-card:hover {-->
-<!--            transform: translateY(-10px);-->
-<!--            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);-->
-<!--        }-->
-
-<!--        .event-card img {-->
-<!--            width: 100%;-->
-<!--            border-radius: 10px;-->
-<!--            height: 200px;-->
-<!--            object-fit: cover;-->
-<!--            margin-bottom: 15px;-->
-<!--        }-->
-
-<!--        .event-details h3 {-->
-<!--            font-size: 1.5rem;-->
-<!--            color: var(&#45;&#45;primary-color);-->
-<!--            margin-bottom: 10px;-->
-<!--        }-->
-
-<!--        .event-details p {-->
-<!--            margin-bottom: 10px;-->
-<!--            font-size: 1rem;-->
-<!--            color: #ccc;-->
-<!--        }-->
-
-<!--        .check-status-btn {-->
-<!--            display: inline-block;-->
-<!--            padding: 10px 20px;-->
-<!--            background: var(&#45;&#45;secondary-color);-->
-<!--            color: #fff;-->
-<!--            text-decoration: none;-->
-<!--            border-radius: 30px;-->
-<!--            font-weight: bold;-->
-<!--            transition: background 0.3s, transform 0.3s;-->
-<!--        }-->
-
-<!--        .check-status-btn:hover {-->
-<!--            background: #009966;-->
-<!--            transform: translateY(-3px);-->
-<!--        }-->
-
-<!--        h2 {-->
-<!--            text-align: center;-->
-<!--            margin-top: 80px;-->
-<!--            color: var(&#45;&#45;primary-color);-->
-<!--            font-size: 2.5rem;-->
-<!--        }-->
-
-<!--        @media (max-width: 768px) {-->
-<!--            .nav-links {-->
-<!--                display: none;-->
-<!--            }-->
-<!--            .navbar {-->
-<!--                flex-direction: column;-->
-<!--            }-->
-
-<!--            .events-container {-->
-<!--                padding: 20px;-->
-<!--            }-->
-<!--        }-->
-<!--    </style>-->
-<!--</head>-->
-<!--<body>-->
-<!--&lt;!&ndash; Navigation &ndash;&gt;-->
-<!--<header class="navbar">-->
-<!--    <div class="logo">Athletes</div>-->
-<!--    <ul class="nav-links">-->
-<!--        <li><a href="athlete.html">Home</a></li>-->
-<!--        <li><a href="#news">News</a></li>-->
-<!--        <li><a href="#events">Events</a></li>-->
-<!--        <li><a href="#athletes">Athletes</a></li>-->
-<!--        <li><a href="#coaches">Coaches</a></li>-->
-<!--        <li><a href="#" id="logoutlink">Logout</a></li>-->
-<!--    </ul>-->
-<!--</header>-->
-
-<!--&lt;!&ndash; Events Section &ndash;&gt;-->
-<!--<section id="events-section">-->
-<!--    <h2>Registered Events</h2>-->
-<!--    <div class="events-container" id="eventsContainer">-->
-<!--        &lt;!&ndash; Event cards will be dynamically loaded here &ndash;&gt;-->
-<!--    </div>-->
-<!--</section>-->
-<!--</body>-->
-<!--</html>-->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athlete Portal</title>
+    <title>Athlete Dashboard</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
         :root {
             --primary-color: #0077be;
-            --secondary-color: #00a86b;
+            --secondary-color: #ffa500;
             --background-dark: #121212;
             --text-light: #f4f4f4;
-            --gradient-primary: linear-gradient(135deg, #0077be 0%, #00a86b 100%);
+            --gradient-primary: linear-gradient(135deg, #eaecdb 0%, #fdd007 100%);
         }
 
         * {
@@ -220,12 +44,12 @@
             z-index: 1000;
             transition: background-color 0.3s ease;
             backdrop-filter: blur(10px);
-            border-bottom: 10px solid white; /* Adjust the color and width as needed */
+            
 
         }
 
         .logo {
-            color: var(--text-light);
+            color:#ffa500;
             font-size: 1.8rem;
             font-weight: bold;
             text-transform: uppercase;
@@ -309,7 +133,7 @@
             position: absolute;
             background-color: rgba(30, 30, 30, 0.9);
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px #ffa500;(0,0,0,0.2);
             z-index: 1;
             top: 100%;
             left: 0;
@@ -344,6 +168,7 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+            align-items: center;
         }
 
         .hero::before {
@@ -401,103 +226,124 @@
         }
 
         /* Event Cards */
-.events-container {
-    background: rgb(16,16,18);
-    background: linear-gradient(108deg, rgba(16,16,18,1) 0%, rgba(1,28,55,1) 100%);
-    padding: 50px 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 362.5px);
-    gap: 30px;
-    margin-top: 50px;
-}
+        .events-container {
+            margin-left: 11%;
+            background: rgb(16, 16, 18);
+            background: linear-gradient(108deg, rgba(16, 16, 18, 1) 0%, rgba(1, 28, 55, 1) 100%);
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 362.5px);
+            gap: 80px;
+            align-items: center;
+        }
+        h1{
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 362.5px);
+            gap: 80px;
+            text-align: center;
+            margin-top: 100px;
+            margin-left:38%;
 
-.event-card {
-    background: #1a1a1a;
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 362.5px;
-}
+        }
+        .event-card {
+           background: rgba(255, 223, 77, 0.1); /* More transparent yellow */
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(255, 223, 77, 0.2); /* Lighter yellowish shadow */
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            max-width: 100%;
+            margin: 5px;
+            align-items: center;
+       }
 
-.event-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-}
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 223, 77, 0.4); /* Enhance shadow on hover */
+        }
 
-.event-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
+        .event-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
 
-.event-card:hover .event-image {
-    transform: scale(1.05);
-}
+        .event-card:hover .event-image {
+            transform: scale(1.05);
+        }
 
-.event-details {
-    padding: 20px;
-    text-align: center;
-    color: var(--text-light);
-    position: relative;
-}
+        .event-details {
+            padding: 20px;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+        }
 
-.event-details h3 {
-    margin-bottom: 10px;
-    color: var(--primary-color);
-    font-size: 1.6rem;
-    font-weight: 600;
-}
+        .event-details h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
 
-.event-details p {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-    color: #ccc;
-    opacity: 0.9;
-}
+        .event-details p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: #ccc;
+            opacity: 0.9;
+        }
 
-.event-details .check-status-btn {
-    padding: 12px 20px;
-    background: var(--secondary-color);
-    color: var(--text-light);
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: background 0.3s, box-shadow 0.3s; /* Removed transform from transition */
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
+        .event-details .check-status-btn {
+            padding: 12px 20px;
+            background: var(--secondary-color);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: background 0.3s, box-shadow 0.3s; /* Removed transform from transition */
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            width:90% ;
+            transform: translateX(-50%);
+        }
 
-.event-details .check-status-btn:hover {
-    background: #009966;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
+        .event-details .check-status-btn:hover {
+            background: #009966;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
 
+        .no-events-message {
+                font-size: 1.5rem;
+                color: #f4f4f4;
+                text-align: center;
+                margin-top: 20px;
+                font-weight: bold;
+            }
 
-/* Add subtle animation on card appearance */
-.event-card {
-    animation: fadeInUp 0.5s ease-out;
-}
+        /* Add subtle animation on card appearance */
+        .event-card {
+            animation: fadeInUp 0.5s ease-out;
+        }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         html {
     scroll-behavior: smooth;
@@ -535,7 +381,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     .notification-link {
@@ -563,7 +409,7 @@
     }
 
     .notification-icon i {
-        font-size: 1.5rem;
+        font-size: 1rem;
         color: var(--text-light);
         transition: color 0.3s ease;
         margin-right: 5px;
@@ -578,7 +424,7 @@
 <body>
 <!-- Navigation -->
 <header class="navbar">
-    <div class="logo">Athletes</div>
+    <div class="logo" id="userDetails">Athletes</div>
 
     <ul class="nav-links">
         <li class="dropdown">
@@ -594,335 +440,301 @@
         <li class="dropdown">
             <a href="#events">Events</a>
             <div class="dropdown-content">
-                <a href="#register">Upcoming Events</a>
-                <a href="#">Ongoing Events</a>
+                <a href="athleteeventregistration.html">Upcoming Events</a>
+                <a href="athleteongoingevents.html">Ongoing Events</a>
                 <a href="Allpast-events.html">Completed Events</a>
             </div>
         </li>
-        <li class="dropdown">
-            <a href="#athletes">Athletes</a>
-            <div class="dropdown-content">
-                <a href="#profiles">Athlete Profile</a>
-                <a href="athleterankings.html">Rankings</a>
-                <a href="athleteachivement.html">Achievements</a>
-                <a href="athletenotifications.html">Notifications</a>
-            </div>
-        </li>
+        <li><a href="athleteresults.html">Results</a></li>
         <li><a href="athletecoaches.html">Coaches</a></li>
+        <a href="athleteprofile.html">Profile</a>
         <li class="notification-icon">
             <a href="athletenotifications.html" class="notification-link">
                 <i class="fas fa-bell"></i>
                 <span class="notification-dot" id="notificationDot"></span>
             </a>
         </li>
-        <li><a href="index.html" id="logoutlink">Logout</a></li>
+        <li><a href="index.html" id="logoutlink" onclick="logout()">Logout</a></li>
     </ul>
 </header>
+
+
 <!-- Events Section -->
 <section id="events-section">
-    <h2>Registered Events</h2>
+       <h1> Registered Events</h1>
     <div class="events-container" id="eventsContainer">
+
         <!--        <input type="text" writingsuggestions="true">-->
         <!-- Event cards will be dynamically loaded here -->
     </div>
 </section>
-<!--<section id="notifications-section">-->
-<!--    <div id="notifications-container">-->
-<!--        <h2>Your Notifications</h2>-->
-<!--        <ul id="notifications-list">-->
-<!--            &lt;!&ndash; Notifications will be dynamically loaded here &ndash;&gt;-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--</section>-->
+<script src="tokens.js"></script>
+
+
 <script>
-    // Decrypt sensitive data
-    function decryptData(data) {
-        if (!data) return null; // Handle null or undefined values gracefully
-        return decodeURIComponent(escape(atob(data))); // Example decryption
-    }
+    let athletesid = 0;
+  let sessionCheckInterval; // Variable to store the interval
 
-    // Check if the user is authenticated
-    function checkAuthentication() {
-        const token = sessionStorage.getItem("token");
-        const username = sessionStorage.getItem("username");
-        const userId = localStorage.getItem("userId");
+  // Enhanced logout function
+  function logout() {
+      // Clear all storage
+      localStorage.clear();
+      sessionStorage.clear();
 
-        // Validate presence of token, username, and userId
-        if (!token || !username || !userId) {
-            return false;
+      // Clear the interval if it exists
+      if (sessionCheckInterval) {
+          clearInterval(sessionCheckInterval);
+      }
+
+      // Redirect to login page
+      window.location.href = 'index.html';
+  }
+
+  // Function to check session validity
+  function checkSession() {
+      const username = localStorage.getItem("username");
+      if (!username) {
+          console.log("Session invalid: Username not found");
+          logout();
+      }
+  }
+
+  // Wait until the DOM is fully loaded before running the code
+  document.addEventListener("DOMContentLoaded", function () {
+      // Start checking session every second
+      sessionCheckInterval = setInterval(checkSession, 1000);
+
+      // Retrieve stored data from localStorage or sessionStorage
+      const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+      const username = localStorage.getItem("username") || sessionStorage.getItem("username");
+      const userId = localStorage.getItem("userId") || sessionStorage.getItem("userId");
+      const roles = localStorage.getItem("roles") || sessionStorage.getItem("roles");
+
+      // Initial session check
+      if (!username) {
+          logout();
+          return;
+      }
+
+      // Store retrieved data in variables
+      let userToken = token;
+      let userUsername = username;
+      let userUserId = userId;
+      let userRoles = roles;
+
+      // Display user details on the page if the user is logged in
+      const userDetailsElement = document.getElementById("userDetails");
+      if (userDetailsElement) {
+          if (userToken && userUsername && userUserId) {
+
+              userDetailsElement.textContent = `ATHLETE - ${userUsername}`;
+          } else {
+              userDetailsElement.textContent = "No user details found. Please log in again.";
+              logout();
+              return;
+          }
+      } else {
+          console.warn("User details element not found");
+      }
+
+      // Log the retrieved details for debugging purposes
+      console.log("User Token:", userToken);
+      console.log("Username:", userUsername);
+      console.log("User ID:", userUserId);
+      console.log("Roles:", userRoles);
+
+      // If user is logged in, fetch the athlete ID
+      if (userUserId) {
+          fetchAthleteId(userUserId);
+      } else {
+          logout();
+          return;
+      }
+
+      // Fetch Athlete ID from the API
+      async function fetchAthleteId(userId) {
+          if (!userId) {
+              displayError("User ID not found.");
+              logout();
+              return;
+          }
+
+          try {
+              const response = await fetch(`http://localhost:8080/api/athletes/getIdByUserId/${userId}`, {
+                  method: "GET",
+                  headers: {
+                      "Content-Type": "application/json",
+                      Authorization: `Bearer ${userToken}`,
+                  },
+              });
+
+              if (response.ok) {
+                  const fetchedAthleteId = await response.text();
+
+                  if (fetchedAthleteId) {
+                      console.log("Fetched Athlete ID:", fetchedAthleteId);
+                      athletesid = fetchedAthleteId;
+                      localStorage.setItem("athleteId", fetchedAthleteId);
+                      fetchRegisteredEvents(fetchedAthleteId);
+                  } else {
+                      logout();
+                  }
+              } else {
+                  logout();
+              }
+          } catch (error) {
+              console.error("Error fetching Athlete ID:", error);
+              logout();
+          }
+      }
+
+      // Fetch Registered Events for the athlete
+      async function fetchRegisteredEvents(athleteId) {
+    try {
+        const response = await fetch(`http://localhost:8080/api/events/athlete/${athleteId}/registered`);
+        if (!response.ok) throw new Error("Failed to fetch events");
+
+        const events = await response.json();
+        const eventsContainer = document.getElementById("eventsContainer");
+
+        if (!eventsContainer) {
+            console.warn("Events container not found");
+            return;
         }
 
-        try {
-            // Attempt to decrypt the values to ensure they are valid
-            decryptData(token);
-            decryptData(username);
-            decryptData(userId);
-            return true; // Authentication successful
-        } catch (error) {
-            console.error("Error during decryption:", error);
-            return false; // Authentication failed
-        }
-    }
+        eventsContainer.innerHTML = ""; // Clear previous content
 
-    // Redirect to login if not authenticated
-    if (!checkAuthentication()) {
-        alert("You must log in first!");
-        window.location.href = "index.html"; // Redirect to login page
-    } else {
+        const currentDate = new Date();
 
-        // Retrieve and display data securely
-        const token = decryptData(sessionStorage.getItem("token"));
-        const username = decryptData(sessionStorage.getItem("username"));
-        const userId = decryptData(localStorage.getItem("userId"));
+        // Filter events: current day, future events, and past 2 days
+        const filteredEvents = events.filter(event => {
+            const eventDate = new Date(event.eventDate); // Assuming event.eventDate is in YYYY-MM-DD format
+            const twoDaysAgo = new Date(currentDate);
+            twoDaysAgo.setDate(currentDate.getDate() - 2);
 
-        console.log("Username:", username);
-        console.log("User ID:", userId);
-        console.log("Token:", token);
-        fetchAthleteId(userId);
+            return (
+                eventDate.toDateString() === currentDate.toDateString() || // Same as today
+                eventDate > currentDate || // Future events
+                (eventDate >= twoDaysAgo && eventDate < currentDate) // Within two days before today
+            );
+        });
 
-
-    }
-// Logout function
-function logout() {
-// Clear session and local storage
-sessionStorage.removeItem("token");
-sessionStorage.removeItem("username");
-localStorage.removeItem("userId");
-
-// Redirect to index.html
-window.location.href = "index.html";
-}
-
-// Event listener for the logout link
-document.getElementById("logoutlink")?.addEventListener("click", (e) => {
-e.preventDefault();  // Prevent the default link behavior
-logout(); // Call logout function
-});
-let athleteid;
-async function fetchAthleteId(userId) {
-
-if (!userId) {
-    console.error("User ID not found in local storage");
-    return;
-}
-
-const url = `http://localhost:8080/api/athletes/getIdByUserId/${userId}`; // Replace with your actual API endpoint
-
-try {
-    const response = await fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${sessionStorage.getItem("token")}`, // Include token if required
-        },
-    });
-
-    if (response.ok) {
-        const athleteId = await response.json(); // Assuming the response is the athleteId directly
-        athleteid=athleteId;
-        console.log("Athlete ID:", athleteId);  // Display athleteId in console
-         fetchRegisteredEvents();
-    } else if (response.status === 404) {
-        console.warn("Athlete not found for the given userId");
-    } else {
-        console.error("Failed to fetch athleteId:", response.status);
-    }
-} catch (error) {
-    console.error("Error while fetching athleteId:", error);
-}
-}
-// Ensure athleteId is correctly defined or retrieved
-document.querySelector('a[href="#register"]').addEventListener('click', (e) => {
-e.preventDefault(); // Prevent default navigation behavior
-
-// Replace with your actual method of fetching athleteId dynamically if necessary
-const athleteId = typeof athleteid !== 'undefined' ? athleteid : null;
-
-if (!athleteId) {
-    console.error('Athlete ID is not defined or null.');
-    return; // Exit if athleteId is invalid
-}
-
-try {
-    // Encode athleteId and store it in sessionStorage
-    sessionStorage.setItem("athleteId", btoa(athleteId.toString()));
-
-    // Navigate to the event registration page
-    window.location.href = "athleteeventregistration.html";
-} catch (error) {
-    console.error('Error encoding athleteId:', error);
-}
-});
-
-document.querySelector('a[href="#profiles"]').addEventListener('click', (e) => {
-e.preventDefault(); // Prevent default navigation behavior
-
-// Replace with your actual method of fetching athleteId dynamically if necessary
-const athleteId = typeof athleteid !== 'undefined' ? athleteid : null;
-
-if (!athleteId) {
-    console.error('Athlete ID is not defined or null.');
-    return; // Exit if athleteId is invalid
-}
-
-try {
-    // Encode athleteId and store it in sessionStorage
-    sessionStorage.setItem("athleteId", btoa(athleteId.toString()));
-
-    // Navigate to the athlete profile page
-    window.location.href = "athleteprofile.html";
-} catch (error) {
-    console.error('Error encoding athleteId:', error);
-}
-});
-
-// Fetch events registered by the athlete
-function fetchRegisteredEvents() {
-    fetch(`http://localhost:8080/api/events/athlete/${athleteid}/registered`)
-        .then(response => response.json())
-        .then(events => {
-            eventsContainer.innerHTML = '';
-            events.forEach(event => {
-                const eventCard = document.createElement('div');
-                eventCard.className = 'event-card';
+        if (filteredEvents.length > 0) {
+            filteredEvents.forEach(event => {
+                const eventCard = document.createElement("div");
+                eventCard.className = "event-card";
                 eventCard.innerHTML = `
                     <img src="https://th.bing.com/th?id=OIP.hxXJSe481Ek1gW43OG3V6QHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="${event.eventTitle}" class="event-image">
                     <div class="event-details">
                         <h3>${event.eventTitle}</h3>
                         <p>${event.eventDate} | ${event.eventTime}</p>
                         <p>${event.eventLocation}</p>
-                        <br><br>
-                     <a href="#" class="check-status-btn" onclick="checkEventStatus(${event.eventId}, event)">Check Status</a>
+                        <br>
+                        <br>
+                        <a href="#" class="check-status-btn" onclick="checkEventStatus(${event.eventId}, event)">Check Status</a>
                     </div>
                 `;
                 eventsContainer.appendChild(eventCard);
             });
-        })
-        .catch(error => console.error('Error fetching events:', error));
-}
-
-// Check status of a specific event
-function checkEventStatus(eventId, event) {
-event.preventDefault(); // Prevent the default action of the link
-fetch(`http://localhost:8080/api/events/${eventId}/athlete/${athleteid}/status`)
-    .then(response => response.text())
-    .then(status => alert(`Status: ${status}`))
-    .catch(error => console.error('Error fetching status:', error));
-}
-// Fetch notifications for the athlete
-async function fetchNotifications() {
-    try {
-        // Ensure athleteid is available
-        if (!athleteid) {
-            console.error('Athlete ID not available');
-            return;
-        }
-
-        const response = await fetch(`http://localhost:8080/api/notifications/athlete/${athleteid}`);
-
-        if (response.ok) {
-            const notifications = await response.json();
-            const notificationsList = document.getElementById('notifications-list');
-            const notificationDot = document.getElementById('notificationDot');
-
-            // Clear existing notifications
-            notificationsList.innerHTML = '';
-
-            // Check if there are new notifications
-            if (notifications.length > 0) {
-                // Show the dot
-                notificationDot.classList.add('active');
-
-                // Populate notifications
-                notifications.forEach(notification => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `
-                        <strong>${notification.title}</strong>
-                        <p>${notification.message}</p>
-                        <small>${new Date(notification.timestamp).toLocaleString()}</small>
-                    `;
-                    notificationsList.appendChild(li);
-                });
-            } else {
-                // Hide the dot if no new notifications
-                notificationDot.classList.remove('active');
-
-                // Show a message when no notifications
-                notificationsList.innerHTML = `
-                    <li class="no-notifications">
-                        No new notifications
-                    </li>
-                `;
-            }
+        } else {
+            // Display centered message when no events match criteria
+            const noEventsMessage = document.createElement("h1");
+            noEventsMessage.className = "no-events-message";
+            noEventsMessage.textContent = "You have not yet registered for any events.";
+            noEventsMessage.style.textAlign = "center"; // Center text horizontally
+            noEventsMessage.style.marginTop = "20%";   // Adjust to center vertically (optional, based on design)
+            eventsContainer.appendChild(noEventsMessage);
         }
     } catch (error) {
-        console.error('Error fetching notifications:', error);
+        const noEventsMessage = document.createElement("h1");
+            noEventsMessage.className = "no-events-message";
+            noEventsMessage.textContent = "You have not yet registered for any events.";
+            noEventsMessage.style.textAlign = "center"; // Center text horizontally
+            noEventsMessage.style.marginTop = "20%";  
+            noEventsMessage.style.marginLeft = "120%";   // Adjust to center vertically (optional, based on design)
+            // Adjust to center vertically (optional, based on design)
+            eventsContainer.appendChild(noEventsMessage);
     }
 }
-async function checkNotifications() {
-    try {
-        // Ensure athleteid is available before checking notifications
-        if (!athleteid) {
-            console.error('Athlete ID not available');
-            return;
-        }
 
-        const response = await fetch(`http://localhost:8080/api/notifications/athlete/${athleteid}/unread`);
-        if (response.ok) {
-            const unreadCount = await response.json();
-            const notificationDot = document.getElementById('notificationDot');
 
-            // Show/hide notification dot based on unread count
-            if (unreadCount > 0) {
-                notificationDot.classList.add('active');
-            } else {
-                notificationDot.classList.remove('active');
-            }
-        }
-    } catch (error) {
-        console.error('Error checking notifications:', error);
-    }
-}
-// Initialize notifications
-function initializeNotifications() {
-    // Initial fetch of notifications
-    fetchNotifications();
+      // Check the status of an event
+      window.checkEventStatus = function(eventId, event) {
+          event.preventDefault();
+          const athleteId = localStorage.getItem("athleteId");
 
-    // Initial check for unread notifications
-    checkNotifications();
+          if (!athleteId) {
+              displayError("Athlete ID not found.");
+              return;
+          }
 
-    // Periodic checks every 5 minutes
-    setInterval(fetchNotifications, 5 * 60 * 1000);
-    setInterval(checkNotifications, 5 * 60 * 1000);
-}
+          fetch(`http://localhost:8080/api/events/${eventId}/athlete/${athleteId}/status`)
+              .then(response => response.text())
+              .then(status => alert(`Status: ${status}`))
+              .catch(error => {
+                  console.error("Error fetching event status:", error);
+                  displayError("Failed to fetch event status. Please try again.");
+              });
+      };
 
-// Modify the existing authentication success block
-if (checkAuthentication()) {
-    // Existing code...
-    fetchAthleteId(userId).then(() => {
-        // Start notification checking after athlete ID is fetched
-        if (athleteid) {
-            checkNotifications();
+      // Register link event listener
+      const registerLink = document.querySelector('a[href="#register"]');
+      if (registerLink) {
+          registerLink.addEventListener('click', (e) => {
+              e.preventDefault();
 
-            // Optional: Periodically check for notifications
-            setInterval(checkNotifications, 5 * 60 * 1000); // Every 5 minutes
-        }
-    });
-}
-    document.querySelector('.notification-icon a')?.addEventListener('click', async (e) => {
-    try {
-        // Optionally mark all notifications as read when clicked
-        await fetch(`http://localhost:8080/api/notifications/athlete/${athleteid}/markAsRead`, {
-            method: 'POST'
-        });
+              if (!athletesid) {
+                  console.error('Athlete ID is not defined or null.');
+                  return;
+              }
 
-        // Remove the active dot
-        document.getElementById('notificationDot').classList.remove('active');
-    } catch (error) {
-        console.error('Error marking notifications as read:', error);
-    }
-});
+              try {
+                  localStorage.setItem("athleteId", btoa(athletesid.toString()));
+                  window.location.href = "athleteeventregistration.html";
+              } catch (error) {
+                  console.error('Error encoding athleteId:', error);
+              }
+          });
+      }
+
+      // Profiles link event listener
+      const profilesLink = document.querySelector('a[href="#profiles"]');
+      if (profilesLink) {
+          profilesLink.addEventListener('click', (e) => {
+              e.preventDefault();
+
+              if (!athletesid) {
+                  console.error('Athlete ID is not defined or null.');
+                  return;
+              }
+
+              try {
+                  localStorage.setItem("athleteId", btoa(athletesid.toString()));
+                  window.location.href = "athleteprofile.html";
+              } catch (error) {
+                  console.error('Error encoding athleteId:', error);
+              }
+          });
+      }
+
+      // Display an error message
+      function displayError(message) {
+          const errorContainer = document.getElementById("errorContainer");
+          if (errorContainer) {
+              errorContainer.textContent = message;
+              errorContainer.style.display = "block";
+          } else {
+              alert(message);
+          }
+      }
+  });
+
+  // Clean up on page unload
+  window.addEventListener('unload', function() {
+      if (sessionCheckInterval) {
+          clearInterval(sessionCheckInterval);
+      }
+  });
 </script>
-
 </body>
 </html>

@@ -210,6 +210,71 @@ outline: none;
 .search-bar input::placeholder {
 font-style: italic;
 }
+.dropdown {
+    position: relative;
+    left: -4em;
+    margin-left: 40px;
+    margin-right:-60px ;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(30, 30, 30, 0.9);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: dropdownSlideIn 0.3s ease;
+}
+
+.dropdown-content a {
+    color: var(--text-light);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(50, 50, 50, 0.9);
+    color: var(--secondary-color);
+}
+@keyframes dropdownSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.2rem; }
+        }
   </style>
 </head>
 <body>
@@ -218,17 +283,26 @@ font-style: italic;
 
 <!-- Navbar -->
 <nav>
-  <div class="brand">Admin</div>
-  <div class="nav-links">
-    <a href="admindasboard.html">Home</a>
-    <a href="admin-news.html">News</a>
-    <a href="admin-create-events.html">Events</a>
-    <a href="admin-Resultss.html">Results</a>
-    <a href="admin-coaches.html">Coaches</a>
-    <a href="adminathletes.html">Athletes</a>
-    <a href="AdminProfile.html">Profile</a>
-    <a href="index.html">Logout</a>
-  </div>
+    <div class="brand">Admin</div>
+    <div class="nav-links">
+        <a href="admindasboard.html">Home</a>
+        <a href="admin-news.html">News</a>
+        <br>
+       
+        <li class="dropdown">
+            <a href="#events">Events</a>
+            <div class="dropdown-content">
+                <a href="admin-upcomingevents.html">Upcoming Events</a>
+                <a href="admin-ongoingevents.html">Ongoing Events</a>
+                <a href="admin-Allpast-events.html">Past Events</a>
+            </div>
+        </li>     
+       <a href="admin-Resultss.html">Results</a>
+        <a href="admin-coaches.html">Coaches</a>
+        <a href="adminathletes.html">Athletes</a>
+        <a href="AdminProfile.html">Profile</a>
+        <li><a href="index.html" id="logoutlink" onclick="logout()">Logout</a></li>
+      </div>
 </nav>
 
 
@@ -245,5 +319,84 @@ font-style: italic;
       <a href="admin-publish-results.html">Publish Results</a>
     </div>
   </div>
+  <script src="tokens.js"></script>
+
+<script>
+ 
+// Logout function
+let sessionCheckInterval; // Variable to store the interval
+
+// Enhanced logout function
+function logout() {
+    // Clear all storage
+    localStorage.clear();
+    sessionStorage.clear();
+    
+    // Clear the interval if it exists
+    if (sessionCheckInterval) {
+        clearInterval(sessionCheckInterval);
+    }
+    
+    // Redirect to login page
+    window.location.href = 'index.html';
+}
+
+// Function to check session validity
+function checkSession() {
+    const username = localStorage.getItem("username");
+    if (!username) {
+        console.log("Session invalid: Username not found");
+        logout();
+    }
+}
+
+// Wait until the DOM is fully loaded before running the code
+document.addEventListener("DOMContentLoaded", function () {
+    // Start checking session every second
+    sessionCheckInterval = setInterval(checkSession, 1000);
+
+    // Retrieve stored data from localStorage or sessionStorage
+    const username = localStorage.getItem("username") || sessionStorage.getItem("username");
+    
+    // Initial session check
+    if (username!="legends") {
+        logout();
+        return;
+    }
+
+    // Store retrieved data in variables
+    
+    let userUsername = username;
+    
+    // Display user details on the page if the user is logged in
+    const userDetailsElement = document.getElementById("userDetails");
+    if (userDetailsElement) {
+        if (userUsername) {
+            userDetailsElement.textContent = `ADMIN - ${userUsername}`;
+        } else {
+            userDetailsElement.textContent = "No user details found. Please log in again.";
+            logout();
+            return;
+        }
+    } else {
+        console.warn("User details element not found");
+    }
+
+    
+    console.log("User ID:", userUserId);
+
+    
+
+    // Fetch Coach ID from the API
+    
+}
+);
+window.addEventListener('unload', function() {
+    if (sessionCheckInterval) {
+        clearInterval(sessionCheckInterval);
+    }
+});
+
+</script>
 </body>
 </html>

@@ -6,101 +6,221 @@
     <title>Coach Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <style>
-        /* Shared Color Scheme */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
         :root {
-            --primary-color: #0077be;
-            --secondary-color: #00a86b;
-            --text-light: #f4f4f4;
-            --background-dark: #121212;
-            --gradient-primary: linear-gradient(135deg, #0077be 0%, #00a86b 100%);
+    --primary-color: #0077be;
+    --secondary-color: #00a86b;
+    --background-dark: #121212;
+    --text-light: #f4f4f4;
+    --gradient-primary: linear-gradient(135deg, #0077be 0%, #00a86b 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background: rgb(16,16,18);
+background: linear-gradient(108deg, rgba(16,16,18,1) 0%, rgba(1,28,55,1) 100%);
+background-size: cover;
+color: #333;
+}
+
+.event-text{
+    margin: 40px;
+    max-width: 400%;
+    font-size: 100px;
+    padding: 10px;
+    font-size: large;
+    text-align: center;
+    color: white;
+ }
+    /* Custom Navbar Styling */
+    nav {
+        background: rgba(0, 0, 0, 0.9);
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    nav .brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #ffa500;
+    }
+
+    nav .nav-links a {
+        text-decoration: none;
+        margin: 0 15px;
+        color: #ffffff;
+        transition: color 0.3s ease;
+    }
+
+    nav .nav-links a:hover {
+        color: #ffa500;
+    }
+
+    nav .nav-links a.active {
+        font-weight: bold;
+    }
+      .navbar {
+    color: white;
+    background-color: rgba(18, 18, 18, 0.9);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin-right: 40px;
+
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.logo {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+.dropdown {
+    position: relative;
+    left: -4em;
+    margin-left: 40px;
+    margin-right:-60px ;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(30, 30, 30, 0.9);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: dropdownSlideIn 0.3s ease;
+}
+
+.dropdown-content a {
+    color: var(--text-light);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(50, 50, 50, 0.9);
+    color: var(--secondary-color);
+}
+@keyframes dropdownSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        body {
-            background: rgb(16,16,18);
-            background: linear-gradient(108deg, rgba(16,16,18,1) 0%, rgba(1,28,55,1) 100%);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-            font-size: 16px;
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
 
-        /* Navigation Bar */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            margin-bottom: 2rem;
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.2rem; }
         }
 
-        .header .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .header .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .header .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 10px;
-            transition: background-color 0.3s ease;
-            border-radius: 5px;
-        }
-
-        .header .nav-links a:hover {
-            background-color: var(--primary-color);
-            color: #fff;
-        }
-
-        .header .logout-btn {
-            padding: 10px 20px;
-            background: var(--primary-color);
-            color: #fff;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .header .logout-btn:hover {
-            background: var(--secondary-color);
-        }
-
-        /* Profile Container */
+        /* Profile Container Styles */
         .container {
-          background: rgba(0, 0, 0, 0.85);
-    background-image: url('https://www.transparenttextures.com/patterns/dark-wood.png'); /* Subtle patterned texture */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
             width: 1000px;
-            margin-top: 80px;
+            margin-top: 100px;
             color: #fff;
         }
 
-        /* Profile Section */
+        /* Profile Section Styles */
         .profile-section {
             display: flex;
-            align-items: center;
-            margin-top: 20px;
+            align-items: flex-start;
             gap: 50px;
+            margin-top: 20px;
         }
 
         .profile-section img {
@@ -108,346 +228,457 @@
             height: 150px;
             border-radius: 50%;
             border: 3px solid var(--primary-color);
+            object-fit: cover;
         }
 
-        .profile-section .ms-4 {
-            margin-left: 20px;
+        .profile-info {
+            flex-grow: 1;
         }
 
-        .profile-section h3 {
+        .profile-info h3 {
             font-size: 2rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            color: var(--text-light);
         }
 
-        .profile-section p {
+        .profile-info p {
             margin-bottom: 10px;
             font-size: 1.1rem;
         }
 
-        .profile-button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-weight: bold;
-        }
+        /* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
 
-        .profile-button:hover {
-            background-color: var(--secondary-color);
-        }
+.modal-content {
+    background: rgb(16, 16, 18);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    padding: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        /* Edit Form Section (Smaller) */
-        .edit-section {
-            margin-top: 20px;
-            display: none;
-            max-width: 600px; /* Set a maximum width for the form */
-            margin: 0 auto; /* Center the form */
-            padding: 20px;
-            background: linear-gradient(108deg, rgba(16,16,18,1) 0%, rgba(1,28,55,1) 100%); /* Semi-transparent black */
-    backdrop-filter: blur(10px); /* Blurs the area behind the edit section */
+.modal-header {
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        }
+    border-bottom: 1px solid #2d2d2d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .edit-section h4 {
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+.modal-header h2 {
+    color: white;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
 
-        .form-input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            color: #333;
-        }
+.close {
+    color: #777;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
 
-        .form-label {
-            font-weight: bold;
-            color: #fff;
-            display: block;
-            margin-bottom: 5px;
-        }
+.close:hover {
+    color: white;
+}
 
-        /* Button styling for Save Changes */
-        .btn-primary-custom {
-            padding: 12px 30px;
+#edit-form {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-label {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #2d2d2d;
+    border-radius: 4px;
+    background: rgb(16, 16, 18);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #0077be;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.save-btn, .cancel-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.save-btn {
+    background: #ffa500;
+    color: black;
+}
+
+.save-btn:hover {
+    background: #ffb52e;
+}
+
+.cancel-btn {
+    background: #3a3a3a;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background: #4a4a4a;
+}
+
+        .edit-btn {
             background: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 30px;
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .edit-btn:hover {
+            background: #ffa500;
+        }
+
+         #notifications-container {
+    margin: 129px auto 20px;  /* Top margin to push it below header, centered horizontally */
+    padding: 35px;
+    border: 1px solid rgba(221, 221, 221, 0.2);
+    border-radius: 15px;
+    background-color: rgba(30, 30, 30, 0.8);
+    max-width: 600px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+#notifications-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+#notifications-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#notifications-list li {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: rgba(50, 50, 50, 0.5);
+    border-radius: 10px;
+    color: #f4f4f4;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+#notifications-list li:hover {
+    background-color: rgba(70, 70, 70, 0.7);
+}
+
+#notifications-list li:last-child {
+    border-bottom: none;
+}
+        .notification-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.notification-link {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    text-decoration: none;
+    position: relative;
+}
+
+.notification-dot {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: block;
+    border: 2px solid rgba(18, 18, 18, 0.9);
+}
+
+.notification-dot.active {
+    display: block;
+}
+
+.notification-icon i {
+    font-size: 1.5rem; /* Increased from previous size */
+    color: var(--text-light);
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+    margin-right: 5px;
+}
+
+.notification-icon:hover i {
+    color: var(--secondary-color);
+    transform: scale(1.1); /* Added scale effect on hover */
+}
+.logo {
+            color:#ffa500;
+            font-size: 1.8rem;
             font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-primary-custom:hover {
-            background: var(--secondary-color);
-        }
-
-        /* Cancel button */
-        .btn-cancel {
-            padding: 12px 30px;
-            background: #d9534f;
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-left: 15px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-cancel:hover {
-            background: #c9302c;
-        }
-
-        /* Ensure the page scrolls smoothly */
-        html {
-            scroll-behavior: smooth;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
-
-<!-- Navigation Bar -->
-<div class="header">
-    <div class="logo">
-        COACH
-    </div>
+<!-- Header -->
+<nav>
+    <div class="logo" id="userDetails">coach</div>
     <div class="nav-links">
-        <a href="coachdashboard.html">Dashboard</a>
-        <a href="coachevents.html">Events</a>
-        <a href="coachteams.html">Teams</a>
-        <a href="coachperformance.html">Performance</a>
-        <a href="coachmyteam.html">My Team</a>
-        <a href="coachnotifications.html">Notifications</a>
+        <a href="coachdashboard.html">Home</a>
+        <a href="coachnews.html">News</a>
+        <li class="dropdown">
+            <a href="#events">Events</a>
+            <div class="dropdown-content">
+                <a href="coachevents.html">Upcoming Events</a>
+                <a href="coachongoingevents.html">Ongoing Events</a>
+                <a href="coach-Allpast-events.html">Past Events</a>
+            </div>
+        </li>             <a href="coachperformance.html">Performance</a>
+        <a href="coachresults.html">Results</a>
+        <a href="coachAthlete.html">Athletes</a>
         <a href="coachProfile.html">Profile</a>
-        <a href="index.html">Logout</a>
+        <li class="notification-icon">
+            <a href="coachnotifications.html" class="notification-link">
+                <i class="fas fa-bell"></i>
+                <span class="notification-dot" id="notificationDot"></span>
+            </a>
+        </li>
+        <li><a href="index.html" id="logoutlink" onclick="logout()">Logout</a></li>
     </div>
-</div>
+</nav>
 
-<!-- Profile Container -->
+<!-- Main Container -->
 <div class="container">
-    <!-- Header -->
     <h1>Coach Profile</h1>
     <hr>
 
     <!-- Profile Section -->
-    <div class="profile-section" id="profile-section">
+    <div class="profile-section">
         <img id="profile-pic" src="https://via.placeholder.com/150" alt="Coach Picture">
-        <div class="ms-4">
-            <h3 id="profile-name">Loading...</h3>
-            <p><strong>Experience:</strong> <span id="experience">Loading...</span></p>
-            <p><strong>Specialty:</strong> <span id="specialty">Loading...</span></p>
-            <p><strong>Teams Managed:</strong> <span id="teams-managed">Loading...</span></p>
-            <p><strong>Contact:</strong> <span id="contact">Loading...</span></p>
-            <button class="profile-button" onclick="toggleEditSection()">Edit Profile</button>
+        <div class="profile-info">
+            <p><strong>ID:</strong> <span id="coach-id">Loading...</span></p>
+            <p><strong>Username:</strong> <span id="username">Loading...</span></p>
+            <p><strong>First Name:</strong> <span id="first-name">Loading...</span></p>
+            <p><strong>Last Name:</strong> <span id="last-name">Loading...</span></p>
+            <p><strong>Birth Date:</strong> <span id="birth-date">Loading...</span></p>
+            <p><strong>Gender:</strong> <span id="gender">Loading...</span></p>
+            <p><strong>Category:</strong> <span id="category">Loading...</span></p>
+            <button class="edit-btn" onclick="openModal()">Edit Profile</button>
         </div>
     </div>
 
-    <!-- Edit Form Section -->
-    <div class="edit-section" id="edit-section">
-        <h4>Edit Profile</h4>
-        <form id="edit-form">
-            <label for="edit-name" class="form-label">Name</label>
-            <input type="text" id="edit-name" class="form-input" placeholder="Enter your name">
-
-            <label for="edit-experience" class="form-label">Experience</label>
-            <input type="number" id="edit-experience" class="form-input" placeholder="Years of experience">
-
-            <label for="edit-specialty" class="form-label">Specialty</label>
-            <input type="text" id="edit-specialty" class="form-input" placeholder="Specialty (e.g. Sprints, Endurance)">
-
-            <label for="edit-teams-managed" class="form-label">Teams Managed</label>
-            <input type="number" id="edit-teams-managed" class="form-input" placeholder="Number of teams managed">
-
-            <label for="edit-contact" class="form-label">Contact</label>
-            <input type="email" id="edit-contact" class="form-input" placeholder="Contact Email">
-
-            <div class="d-flex justify-content-center mt-3">
-                <button type="button" class="btn-primary-custom" onclick="saveProfile()">Save Changes</button>
-                <button type="button" class="btn-cancel" onclick="cancelEdit()">Cancel</button>
-            </div>
-        </form>
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <h2>Edit Coach Profile</h2>
+            <form id="edit-form">
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" id="edit-username" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">First Name</label>
+                    <input type="text" id="edit-first-name" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" id="edit-last-name" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Birth Date</label>
+                    <input type="date" id="edit-birth-date" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Gender</label>
+                    <input type="text" id="edit-gender" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Category</label>
+                    <input type="text" id="edit-category" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Photo URL</label>
+                    <input type="text" id="edit-photo-url" class="form-input">
+                </div>
+                <div class="button-group">
+                    <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+                    <button type="button" class="save-btn" onclick="saveProfile()">Save Changes</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
+<script src="tokens.js"></script>
+<script src="coachauth.js"></script>
+
 <script>
-<!--    document.addEventListener("DOMContentLoaded", () => {-->
-<!--    // Decrypt function-->
-<!--    function decryptData(data) {-->
-<!--        return decodeURIComponent(escape(atob(data)));-->
-<!--    }-->
+ 
+// Logout function
+let sessionCheckInterval; // Variable to store the interval
 
-<!--    // Retrieve userId from localStorage-->
-<!--    const encryptedUserId = localStorage.getItem("userId");-->
-<!--    if (!encryptedUserId) {-->
-<!--        console.error("User ID not found in localStorage");-->
-<!--        alert("User ID not found. Please log in.");-->
-<!--        window.location.href = "login.html";-->
-<!--        return;-->
-<!--    }-->
-
-<!--    const userId = decryptData(encryptedUserId);-->
-<!--    console.log("User ID:", userId);-->
-
-<!--    // Use userId to fetch profile data-->
-<!--    fetch(`http://localhost:8080/api/coaches/${userId}`)-->
-<!--        .then(response => {-->
-<!--            if (!response.ok) throw new Error("Failed to fetch user profile.");-->
-<!--            return response.json();-->
-<!--        })-->
-<!--        .then(data => {-->
-<!--            console.log("User Profile Data:", data);-->
-<!--            // Populate the profile page-->
-<!--            document.getElementById("profileName").textContent = data.firstName;-->
-<!--        })-->
-<!--        .catch(error => console.error("Error fetching user profile:", error));-->
-<!--});-->
-
-   document.addEventListener('DOMContentLoaded', initializePage);
-
-function initializePage() {
-    const userId = getUserIdFromLocalStorage();
-    if (userId) {
-        displayUserProfile(userId);
-    } else {
-        console.error('User ID not found in localStorage');
-        alert("Unauthorized access. Please log in.");
-        window.location.href = "login.html";
+// Enhanced logout function
+function logout() {
+    // Clear all storage
+    localStorage.clear();
+    sessionStorage.clear();
+    
+    // Clear the interval if it exists
+    if (sessionCheckInterval) {
+        clearInterval(sessionCheckInterval);
     }
+    
+    // Redirect to login page
+    window.location.href = 'index.html';
 }
 
-// Decrypt user ID from localStorage
-function getUserIdFromLocalStorage() {
-    const encryptedUserId = localStorage.getItem('userId');
-    if (!encryptedUserId) return null;
-
-    try {
-        return decryptData(encryptedUserId);
-    } catch (error) {
-        console.error('Error decrypting user ID:', error);
-        return null;
+// Function to check session validity
+function checkSession() {
+    const username = localStorage.getItem("username");
+    if (!username) {
+        console.log("Session invalid: Username not found");
+        logout();
     }
-}
+}    document.addEventListener("DOMContentLoaded", () => {
+        const coachId = localStorage.getItem("coachId");
+        console.log("coach id: ", coachId);
 
-// Decrypt data (Ensure this matches your encryption method during login)
-function decryptData(data) {
-    return decodeURIComponent(escape(atob(data)));
-}
+        if (!coachId) {
+            alert("No coach ID found in localStorage.");
+            return;
+        }
 
-// Fetch and display the user profile
-function displayUserProfile(userId) {
-    fetch(`/api/coaches/byUserId/${userId}`)
-        .then(response => {
-            if (!response.ok) throw new Error('Failed to fetch user profile');
-            return response.json();
-        })
-        .then(data => {
-            updateProfileUI(data);  // Display the fetched user data
-        })
-        .catch(error => console.error('Error:', error));
-}
+        fetch(`http://localhost:8080/api/coaches/${coachId}`)
+            .then(response => response.json())
+            .then(data => {
+                // Display coach data on the page
+                document.getElementById("coach-id").textContent = data.coachId;
+                document.getElementById("username").textContent = data.username;
+                document.getElementById("first-name").textContent = data.firstName;
+                document.getElementById("last-name").textContent = data.lastName;
+                document.getElementById("birth-date").textContent = data.birthDate;
+                document.getElementById("gender").textContent = data.gender;
+                document.getElementById("category").textContent = data.category;
+                document.getElementById("profile-pic").src = data.photoUrl;
 
-// Update profile UI with fetched data
-function updateProfileUI(data) {
-    document.getElementById('profile-name').textContent = `${data.firstName} ${data.lastName}`;
-    document.getElementById('experience').textContent = `${data.experience || 0} Years`;
-    document.getElementById('specialty').textContent = data.category || 'N/A';
-    document.getElementById('teams-managed').textContent = data.teamsManaged || '0';
-    document.getElementById('contact').textContent = data.email || 'N/A';
-    document.getElementById('profile-pic').src = data.photoUrl || 'https://via.placeholder.com/150';
+                // Populate modal inputs with data
+                document.getElementById("edit-username").value = data.username;
+                document.getElementById("edit-first-name").value = data.firstName;
+                document.getElementById("edit-last-name").value = data.lastName;
+                document.getElementById("edit-birth-date").value = data.birthDate;
+                document.getElementById("edit-gender").value = data.gender;
+                document.getElementById("edit-category").value = data.category;
+                document.getElementById("edit-photo-url").value = data.photoUrl;
+            })
+            .catch(error => {
+                console.error("Error fetching coach data:", error);
+                alert("An error occurred while fetching the coach data. Please try again later.");
+            });
 
-    // Prepopulate the edit form with current profile data
-    document.getElementById('edit-name').value = `${data.firstName} ${data.lastName}`;
-    document.getElementById('edit-experience').value = data.experience || 0;
-    document.getElementById('edit-specialty').value = data.category || '';
-    document.getElementById('edit-teams-managed').value = data.teamsManaged || 0;
-    document.getElementById('edit-contact').value = data.email || '';
-}
+    });
 
-// Toggle between profile and edit sections
-function toggleEditSection() {
-    const editSection = document.getElementById('edit-section');
-    const profileSection = document.getElementById('profile-section');
-
-    const isEditVisible = editSection.style.display === 'block';
-    editSection.style.display = isEditVisible ? 'none' : 'block';
-    profileSection.style.display = isEditVisible ? 'block' : 'none';
-}
-
-// Gather data from the edit form and update the profile
-function saveProfile() {
-    const updatedProfile = gatherUpdatedProfileData();
-    const userId = getUserIdFromLocalStorage();
-
-    if (userId) {
-        updateProfileData(userId, updatedProfile);
-    } else {
-        console.error('User ID not found in localStorage');
+    function openModal() {
+       document.getElementById("editModal").style.display = "flex";
     }
-}
 
-// Gather updated profile data from form inputs
-function gatherUpdatedProfileData() {
-    const fullName = document.getElementById('edit-name').value.split(' ');
-    return {
-        firstName: fullName[0],
-        lastName: fullName[1] || '',
-        experience: parseInt(document.getElementById('edit-experience').value) || 0,
-        category: document.getElementById('edit-specialty').value,
-        teamsManaged: parseInt(document.getElementById('edit-teams-managed').value) || 0,
-        email: document.getElementById('edit-contact').value,
-    };
-}
+    function closeModal() {
+       document.getElementById("editModal").style.display = "none";
+    }
 
-// Update profile on the server
-function updateProfileData(id, updatedProfile) {
-    fetch(`/api/coaches/updateByUserId/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedProfile),
-    })
-        .then(response => {
-            if (!response.ok) throw new Error('Failed to update profile');
-            return response.json();
-        })
-        .then(data => {
-            alert('Profile updated successfully!');
-            // After saving, refetch and update the UI with the latest data
-            fetchProfileData(id);
-            toggleEditSection();  // Hide edit section after saving
-        })
-        .catch(error => console.error('Error:', error));
-}
+    function saveProfile() {
+       const coachId = localStorage.getItem("coachId");
 
-// Fetch updated profile data after saving and update the UI
-function fetchProfileData(id) {
-    fetch(`/api/coaches/byUserId/${id}`)
-        .then(response => {
-            if (!response.ok) throw new Error('Failed to fetch updated profile');
-            return response.json();
-        })
-        .then(data => {
-            updateProfileUI(data);  // Update the profile UI with the new data
-        })
-        .catch(error => console.error('Error:', error));
-}
+       const updatedData = {
+           username: document.getElementById("edit-username").value,
+           firstName: document.getElementById("edit-first-name").value,
+           lastName: document.getElementById("edit-last-name").value,
+           birthDate: document.getElementById("edit-birth-date").value,
+           gender: document.getElementById("edit-gender").value,
+           category: document.getElementById("edit-category").value,
+           photoUrl: document.getElementById("edit-photo-url").value,
+       };
 
-// Cancel edit and hide the edit form
-function cancelEdit() {
-    toggleEditSection();  // Just close the edit form without saving changes
-}
+       // Ensure the coachId is valid
+       if (!coachId) {
+           alert("No coach ID found in localStorage.");
+           return;
+       }
+
+       fetch(`http://localhost:8080/api/coaches/update/${coachId}`, {
+           method: "PUT",
+           headers: {
+               "Content-Type": "application/json",
+           },
+           body: JSON.stringify(updatedData),
+       })
+           .then(response => {
+               if (response.ok) {
+                   alert("Profile updated successfully.");
+                   location.reload(); // Reload the page to reflect updated data
+               } else {
+                   throw new Error("Failed to update profile.");
+               }
+           })
+           .catch(error => {
+               console.error("Error updating coach data:", error);
+               alert("An error occurred while updating the profile. Please try again later.");
+           });
+    }
 </script>
-
 </body>
 </html>
