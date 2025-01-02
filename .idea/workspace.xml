@@ -4,81 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ec03e4f-e1e0-4d84-a8d1-d53e1cbae03c" name="Changes" comment="4.0">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-12-2024_19_36_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30-12-2024_19_36__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Controller/AssistanceRequestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Controller/AssistantNotifyController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Controller/MeetController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Repository/AssistanceRequestRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Repository/AssistantNotifyRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Repository/MeetRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Services/AssistanceRequestService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Services/AssistantNotifyService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/Services/MeetService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/entity/AssistanceRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/entity/AssistantNotify.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/auth/Authentication/entity/Meet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/6272.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin-Allpast-events.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin-ongoingevents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin-upcomingevents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/athleteauth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/athletecoaches.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/athletecoaches.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/coach-Allpast-events.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/coachauth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/coachongoingevents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/coachresults.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/fire.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/img2.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/imgrun.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/s.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/tokens.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Controller/AssistanceRequestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Controller/AssistantNotifyController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Controller/EventResultController$UpdateScoreRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Controller/EventResultController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Controller/MeetController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Repository/AssistanceRequestRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Repository/AssistantNotifyRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Repository/EventResultRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Repository/MeetRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Services/AssistanceRequestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Services/AssistantNotifyService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Services/MeetService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/Services/ResultService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/config/WebConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/dto/ResultDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/entity/AssistanceRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/entity/AssistantNotify.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/entity/EventResult.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/auth/Authentication/entity/Meet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/6272.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/admin-Allpast-events.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/admin-ongoingevents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/admin-upcomingevents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/athleteauth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/athletecoaches.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/athletecoaches.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/athleteongoingevents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/athleteresults.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/coach-Allpast-events.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/coachAthlete.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/coachauth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/coachnews.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/coachnotifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/coachnotifications.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/coachongoingevents.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/coachresults.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/fire.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img2.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/imgrun.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/s.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/tokens.js" beforeDir="false" />
+    <list default="true" id="5ec03e4f-e1e0-4d84-a8d1-d53e1cbae03c" name="Changes" comment="5.0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +99,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735684440101</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="5.0">
+      <option name="closed" value="true" />
+      <created>1735823676441</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1735823676441</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,7 +123,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="4.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.0" />
+    <MESSAGE value="5.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
