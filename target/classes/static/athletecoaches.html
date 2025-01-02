@@ -161,6 +161,7 @@
            margin: 50px;
            padding: 50px;
            text-align: center;
+           margin-top:100px;
          }
 
          h1 {
@@ -171,7 +172,7 @@
            text-align: centre;
          }
        /* General Container Styling */
-#coach-container {
+#coach-container {  
     background-color: #1e1e1e;
     padding: 40px;
     border-radius: 16px;
@@ -419,12 +420,14 @@ hr {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
 .messages-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    text-align: left;
 }
 
 .message-item {
@@ -435,6 +438,7 @@ hr {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color:white;
+    text-align: left;
 }
 
 .message-item strong {
@@ -485,6 +489,7 @@ hr {
         <li><a href="index.html" id="logoutlink" onclick="logout()">Logout</a></li>
     </ul>
 </header>
+<div class="container">
 <h2>Coaches List</h2>
     <div id="coach-list"></div>
 
@@ -505,7 +510,7 @@ hr {
     </div>
     
 
-
+</div>
 
 
 </body>
@@ -530,6 +535,28 @@ function logout() {
     // Redirect to login page
     window.location.href = 'index.html';
 }
+// Select popup and buttons
+const popup = document.getElementById("popup");
+const closePopupBtn = document.getElementById("close-popup-btn");
+
+// Function to show the popup
+function showPopup() {
+    popup.style.display = "flex"; // Show popup with flexbox centering
+}
+
+// Function to close the popup
+function closePopup() {
+    popup.style.display = "none";
+}
+
+// Add event listener to the close button
+closePopupBtn.addEventListener("click", closePopup);
+
+// Example usage (you can trigger `showPopup()` when needed)
+document.getElementById("send-notify-btn").addEventListener("click", () => {
+    alert("Notification sent!");
+    closePopup(); // Close popup after sending notification
+});
 
 // Function to check session validity
 function checkSession() {
@@ -633,7 +660,7 @@ function openPopup(coachId) {
     }
 
     // Fetch the remarks and notifications
-    fetch(`${NOTIFICATIONS_API_URL}/athlete/${athleteId}`)
+    fetch(`${ASSISTANCE_API_URL}/athlete/${athleteId}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch notifications.");
@@ -644,12 +671,9 @@ function openPopup(coachId) {
             const notification = notifications.find(n => n.coachId === coachId);
 
             const remarksElement = document.getElementById("remarks");
-            if (notification && remarksElement) {
-                remarksElement.innerText = `Coach's Remarks: ${notification.coachReply || "No remarks available"}`;
-            } else if (remarksElement) {
-                remarksElement.innerText = "No remarks available.";
-            }
-
+            if (remarksElement) {
+                remarksElement.innerText = `Coach's Remarks: ${notification.remarks || "No remarks available"}`;
+            } 
             // Show popup
             const popupElement = document.getElementById("popup");
             if (popupElement) {
@@ -738,9 +762,9 @@ async function displayMessages(messages) {
         listItem.className = "messagess-item";
         listItem.innerHTML = `
             <strong>Coach: ${coachName}</strong><br>
-            <em>question:</em> ${messagess.message}
-            <em>notify:</em> ${messagess.coachReply}
-
+            <strong>question:</strong> ${messagess.message}
+            <br>
+            <strong>notify:</strong> ${messagess.coachReply}
         `;
         messagesList.appendChild(listItem);
     }

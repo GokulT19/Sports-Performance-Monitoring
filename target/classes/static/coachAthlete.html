@@ -507,11 +507,6 @@ h2 {
     <p><strong>Weight:</strong> <span id="athleteWeight"></span></p>
     <p><strong>Category:</strong> <span id="athleteCategory"></span></p>
 </div>
-
-<h2>Notifications for Accepted Assistance Requests</h2>
-<div id="notificationsContainer" class="notifications-list">
-    <!-- Notifications will be populated here -->
-</div>
 <script src="tokens.js"></script>
 <script src="coachauth.js"></script>
 
@@ -592,37 +587,7 @@ function checkSession() {
                 console.error('Error fetching athlete details:', error);
             }
         }
-        async function fetchNotifications() {
-    try {
-        const response = await fetch('http://127.0.0.1:8080/api/coach_notifications/coach/1'); // Replace with actual coachId
-        const notifications = await response.json();
-        displayNotifications(notifications);
-    } catch (error) {
-        console.error('Error fetching notifications:', error);
-    }
-}
 
-// Function to display notifications
-function displayNotifications(notifications) {
-    const notificationsContainer = document.getElementById('notificationsContainer');
-    notificationsContainer.innerHTML = '';
-
-    notifications.forEach(notification => {
-        // Check if the associated AssistanceRequest has been accepted and if the coach has not replied
-        if (notification.status === "accepted" && !notification.coachReply) {
-            const notificationDiv = document.createElement('div');
-            notificationDiv.className = 'notification';
-            notificationDiv.innerHTML = 
-                `<div>
-                    <strong>Athlete ${notification.athleteId}:</strong> ${notification.message}
-                    <br><em>Status: ${notification.status}</em>
-                </div>`;
-            notificationsContainer.appendChild(notificationDiv);
-        }
-    });
-}
-
-// Fetch notifications on page load
         // Close popup
         document.getElementById('closePopup').addEventListener('click', () => {
             document.getElementById('popupOverlay').style.display = 'none';
@@ -631,8 +596,6 @@ function displayNotifications(notifications) {
 
         // Fetch athletes on page load
         fetchAthletes();
-        fetchNotifications();
-
         </script>
         </body>
         </html>

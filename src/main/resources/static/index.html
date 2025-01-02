@@ -355,7 +355,7 @@ header a:hover {
             } else if (role.includes("ATHLETE")) {
                 window.location.href = "athlete.html";
             } else {
-                showPopup("Invalid role detected. Please contact support.");
+                alert("Invalid role detected. Please contact support.");
             }
         }
 
@@ -483,13 +483,13 @@ header a:hover {
                     localStorage.setItem("username", username);
                     localStorage.setItem("userId", data.userId);
                     localStorage.setItem("role", data.roles);
-                    showPopup("Login successful!");
+                    alert("Login successful!");
                     redirectBasedOnRole(username, data.roles);
                 } else {
-                    showPopup("Invalid credentials. Please try again.");
+                    alert("Invalid credentials. Please try again.");
                 }
             } catch (error) {
-                showPopup("Error occurred during login. Please try again.");
+                alert("Error occurred during login. Please try again.");
                 console.error("Login error:", error);
             }
         });
@@ -526,7 +526,7 @@ header a:hover {
                 const data = await response.json();
 
                 if (response.ok) {
-                    showPopup("Registration successful! Please log in.");
+                    alert("Registration successful! Please log in.");
                     loginForm.classList.remove("hidden");
                     registerForm.classList.add("hidden");
                     glassEffect?.classList.remove("hidden");

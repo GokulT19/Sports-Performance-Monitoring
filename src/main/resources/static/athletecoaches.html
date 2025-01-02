@@ -660,7 +660,7 @@ function openPopup(coachId) {
     }
 
     // Fetch the remarks and notifications
-    fetch(`${NOTIFICATIONS_API_URL}/athlete/${athleteId}`)
+    fetch(`${ASSISTANCE_API_URL}/athlete/${athleteId}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Failed to fetch notifications.");
@@ -672,7 +672,7 @@ function openPopup(coachId) {
 
             const remarksElement = document.getElementById("remarks");
             if (remarksElement) {
-                remarksElement.innerText = `Coach's Remarks: ${notification.coachReply || "No remarks available"}`;
+                remarksElement.innerText = `Coach's Remarks: ${notification.remarks || "No remarks available"}`;
             } 
             // Show popup
             const popupElement = document.getElementById("popup");
